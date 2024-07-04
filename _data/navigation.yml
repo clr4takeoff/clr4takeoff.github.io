@@ -1,0 +1,10 @@
+# main links
+main:
+  - title: "About"
+    url: /about/
+  - title: "Study"
+    url: /study/
+  - title: "Etc"
+    url: /etc/
+  # - title: "Sitemap"
+  #   url: /sitemap/
