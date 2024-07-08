@@ -1,8 +1,8 @@
 ---
 author_profile: true
 permalink: /about/
-title: "About"
-layout: posts
+title: "마참내!"
+layout: archive
 ---
 
-About!
+공부한 내용 기록하려고 만든 블로그
