@@ -5,6 +5,13 @@ categories:
 tags:
   - first
   - blog
+
+  toc: true
+  toc_sticky: true
+
+  date: 2024-07-08
+  last_modified_at: 2024-07-09
+  comments: true
 ---
 
 공부하고 배운 내용 기록하려고 블로그 만들었다🕊️
