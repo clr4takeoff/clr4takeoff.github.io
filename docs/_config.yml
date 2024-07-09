@@ -16,9 +16,9 @@ title_separator          : "-"
 subtitle                 : "A Jekyll theme"
 name                     : &name "Michael Rose" # &name is a YAML anchor which can be *referenced later
 description              : &description "A flexible Jekyll theme for your blog or site with a minimalist aesthetic."
-url                      : https://mmistakes.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://clr4takeoff.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/minimal-mistakes" # the subpath of your site, e.g. "/blog"
-repository               : "mmistakes/minimal-mistakes"
+repository               : "clr4takeoff/clr4takeoff.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -26,7 +26,10 @@ masthead_title           : # overrides the website title displayed in the masthe
 words_per_minute         : 200
 enable_copy_code_button  : true
 comments:
-  provider               : "false" # false (default), "disqus", "discourse", "facebook", "staticman_v2", "staticman", "utterances", "giscus", "custom"
+  provider               : "utterances" # false (default), "disqus", "discourse", "facebook", "staticman_v2", "staticman", "utterances", "giscus", "custom"
+  utterances:
+     theme: "github-light" 
+     issue_term: "pathname"
   disqus:
     shortname            :
   discourse:
@@ -35,10 +38,7 @@ comments:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-  utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
+    colorscheme          : # "light" (default), "dark" 
   giscus:
     repo_id              : # Shown during giscus setup at https://giscus.app
     category_name        : # Full text name of the category
@@ -295,6 +295,13 @@ whitelist:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+
+# Comments settings
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-light"
+    issue_term: "pathname"
 
 
 # Archives
