@@ -335,3 +335,5 @@ tipue_search:
          files: [search.html, index.html, tags.html]
          categories: []
          tags: []
+
+timezone: Asia/Seoul
