@@ -3,7 +3,7 @@ title: "[백준]4358 - Hardwood Species"
 categories:
   - Algorithm
 tags:
-  - Algorithm
+  - boj
 
 date: 2024-08-08
 last_modified_at: 2024-08-08
