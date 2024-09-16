@@ -34,8 +34,12 @@ comments: true
 2. <span style="color:red">`default.html`</span>에서 하단 코드 위치를 위로 바꿔줌.
 <img width="840" alt="Screenshot 2024-09-16 at 16 44 34" src="https://github.com/user-attachments/assets/68286a90-c454-4d4f-b90d-75ef0998eca2">
 <img width="1010" alt="Screenshot 2024-09-16 at 16 45 07" src="https://github.com/user-attachments/assets/2444895e-a708-4057-b57e-594da65ccf91">
-- 이렇게 스크롤바보다 더 상단으로..
-- **리소스 호출 순서**: 브라우저는 HTML문서를 위에서 아래로 순차적으로 parsing하는데,<span style="color:red">`<html>`</span>태그가 <span style="color:red">`<!doctype html>`</span>바로 다음에 위치하지 않고 내가 넣어둔 스크롤바 다음에 위치해서 파비콘이 올바르게 로드되지 않은 듯.
+
+- 이렇게 <span style="color:red">`<script>`</span>태그보다 더 상단으로..
+- **리소스 호출 순서**
+  - 브라우저는 HTML문서를 위에서 아래로 순차적으로 parsing하는데,<span style="color:red">`<html>`</span>태그가 <span style="color:red">`<!doctype html>`</span>바로 다음에 위치하지 않고 <span style="color:red">`<script>`</span> 다음에 위치해서 파비콘이 올바르게 로드되지 않은 듯.  
+  - <span style="color:red">`<script>`</span>태그가 너무 일찍 시작되면 DOM이 완전히 로드되기 전에 JavaScript가 실행되어 문서 구조에 영향을 미칠 수도 있고, <span style="color:red">`<html>`</span>태그 전에 있으면 브라우저가 HTML을 올바르게 해석하지 못할 수도 있다고 함.
+  - **DOM(Document Object Model)**: 웹 페이지의 모든 요소들이 어떻게 서로 연결되어있고, 어떤 계층 구조를 가지고 있는지를 트리 구조로 나타낸 것
 
 <br/>
  <img width="137" alt="Screenshot 2024-09-16 at 16 45 59" src="https://github.com/user-attachments/assets/2c2fa0b0-d6eb-46e9-98f1-649fa3be4fcc">
