@@ -30,7 +30,7 @@ comments: true
 1. <span style="color:red">`custom.html`</span> 내부의 favicon 관련 코드들을 통째로 <span style="color:red">`default.html`</span>로 옮겨 보니 적용이 되었음.
 <img width="893" alt="Screenshot 2024-09-16 at 16 45 30" src="https://github.com/user-attachments/assets/d7cc9991-f38f-47b5-a83e-e3afba9d1bb7">
  - 근데 결국 이것도 큰 관점에서는 2번 방법이랑 같긴 함
- - 나는 <span style="color:red">`custom.html`</span>과 <span style="color:red">`default.html`</span>을 확실히 분리하고 싶었음. <span style="color:red">`default.html`</span>이 <span style="color:red">`custom.html`</span>을 참고하니까.<br><br/>
+ - 나는 <span style="color:red">`custom.html`</span>과 <span style="color:red">`default.html`</span>을 확실히 분리하고 싶었음. <span style="color:red">`default.html`</span>이 <span style="color:red">`custom.html`</span>을 참조하니까.<br><br/>
 2. <span style="color:red">`default.html`</span>에서 하단 코드 위치를 위로 바꿔줌.
 <img width="840" alt="Screenshot 2024-09-16 at 16 44 34" src="https://github.com/user-attachments/assets/68286a90-c454-4d4f-b90d-75ef0998eca2">
 <img width="1010" alt="Screenshot 2024-09-16 at 16 45 07" src="https://github.com/user-attachments/assets/2444895e-a708-4057-b57e-594da65ccf91">
