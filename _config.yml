@@ -26,7 +26,7 @@ url                      : # the base hostname & protocol for your site e.g. "ht
 baseurl                  : ""
 repository               : clr4takeoff/clr4takeoff.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/favicon-32x32.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
@@ -165,7 +165,7 @@ footer:
 include:
   - .htaccess
   - _pages
-  - assets/logo/
+  - assets/images/
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
