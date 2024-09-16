@@ -1,49 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
+<meta charset="utf-8">
 
-    <!-- Add favicon -->
-    <link rel="icon" type="image/png" href="{{ '/assets/logo/favicon.ico' | relative_url }}">
+{% include seo.html %}
 
-    <!-- Include SEO -->
-    {% include seo.html %}
+{% unless site.atom_feed.hide %}
+  <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+{% endunless %}
 
-    <!-- Feed -->
-    {% unless site.atom_feed.hide %}
-      <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-    {% endunless %}
+{%- comment %} https://docs.google.com/presentation/d/1rmxwWa9P6_xHqonmh5ONXRS-jPc5XKbnv99Rjkhe04s/present {% endcomment -%}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<!-- Viewport 설정 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome Preload -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+<!-- 자바스크립트 (JS 활성화 설정) -->
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
 
-    <!-- Manifest for PWA -->
-    <link rel="manifest" href="{{ '/assets/logo/site.webmanifest' | relative_url }}">
+{% if site.enable_copy_code_button %}
+<script type="text/javascript">
+  window.enable_copy_code_button = true;
+</script>
+{% endif %}
 
-    <!-- Scripts -->
-    {% if site.head_scripts %}
-      {% for script in site.head_scripts %}
-        <script src="{{ script | relative_url }}"></script>
-      {% endfor %}
-    {% endif %}
+<!-- 스타일시트 (CSS) 및 외부 리소스 -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
-    <!-- Enable copy code button -->
-    {% if site.enable_copy_code_button %}
-    <script type="text/javascript">
-      window.enable_copy_code_button = true;
-    </script>
-    {% endif %}
-
-    <!-- Handle no-js class -->
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-    </script>
-
-</head>
-</html>
+{% if site.head_scripts %}
+  {% for script in site.head_scripts %}
+    <script src="{{ script | relative_url }}"></script>
+  {% endfor %}
+{% endif %}
