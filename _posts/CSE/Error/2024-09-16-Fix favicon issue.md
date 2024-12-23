@@ -16,7 +16,7 @@ comments: true
 
 ## 문제 상황
 <img width="334" alt="Screenshot 2024-09-16 at 14 47 48" src="https://github.com/user-attachments/assets/2f6f582b-7e75-4ac8-9f51-ede323a5c74b">
-- 예전에 블로그 초기 세팅 하면서 favicon을 설정했던 것 같은데, 어는 날 보니까 아무것도 안보임.
+- 예전에 블로그 초기 세팅 하면서 favicon을 설정했던 것 같은데, 어느 날 보니까 아무것도 안보임.
 - 모든 파일 삭제했다가 다시 넣어보고, <span style="color:red">`custom.html`</span>이랑 <span style="color:red">`head.html`</span> 건드려가며 별 짓을 다 해도 favicon이 등장하지 않음.
 - StackOverflow에 달린 답변도 수십 개는 확인해봤으나 원하는 답을 얻지 못함.
 - GPT한테 물어봐도 파일 위치 확인해라, 파일 경로 수정해봐라 외에 다른 답을 제공하지 않았음.. 
