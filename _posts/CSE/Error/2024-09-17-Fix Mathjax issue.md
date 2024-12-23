@@ -14,7 +14,7 @@ comments: true
 ---
 
 ## 문제 상황
-- markdown으로 수식을 입력했는데 제대로 렌더링되지 않고 텍스트로 보임
+- markdown으로 수식을 입력했는데 제대로 렌더링되지 않고 아래 사진처럼 텍스트로 보임<br><br/>
   <img width="694" alt="Screenshot 2024-09-17 at 14 31 26" src="https://github.com/user-attachments/assets/847dd5af-3a92-4904-8c68-1cafc4e663ff">
 
 <br><br>
