@@ -6,7 +6,7 @@ author_profile: true
 sidebar_main: true
 ---
 
-<h2 style="font-size: 1.5rem; margin-bottom: 10px;">Group Posts</h2>
+<h2 style="font-size: 1.5rem; margin-bottom: 10px;">Group Posts 👥</h2>
 <div class="entries-group" style="background-color: #F3F3F3FF; padding: 20px; margin-bottom: 30px; border-radius: 8px;">
   {% assign posts = site.categories.mogagko %}
   {% for post in posts %}
@@ -19,7 +19,7 @@ sidebar_main: true
 </div>
 
 
-<h2 style="font-size: 1.5rem; margin-bottom: 10px;">Individual Posts</h2>
+<h2 style="font-size: 1.5rem; margin-bottom: 10px;">Individual Posts 👤</h2>
 <div class="entries-individual" style="background-color: #E4F0F8FF; padding: 20px; margin-bottom: 30px; border-radius: 8px;">
   {% assign posts = site.categories.mogagko %}
   {% for post in posts %}
