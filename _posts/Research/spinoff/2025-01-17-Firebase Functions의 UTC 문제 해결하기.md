@@ -16,7 +16,7 @@ comments: true
 
 ## 문제 상황 😵‍💫
 <div style="text-align: center;">
-
+<img width="1039" alt="Image" src="https://github.com/user-attachments/assets/6936a92b-f1a9-48ac-a3f6-71346fd70d03" />
 </div>
 
 - Firebase Functions를 사용하여 실험 조건 counterbalancing을 위한 로직을 구현 중.
