@@ -137,6 +137,10 @@ author:
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
     #   # url: "https://instagram.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/clr4takeoff/"
+
 
 # Site Footer
 footer:
