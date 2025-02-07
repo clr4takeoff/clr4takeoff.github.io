@@ -58,8 +58,8 @@
         <span class="nav__sub-title">Activities</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "mogagko" %}
-                        <li><a href="/categories/mogagko" class="">Mogagko ({{category[1].size}})</a></li>
+                    {% if category[0] == "conference" %}
+                        <li><a href="/categories/conference" class="">Conference ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -67,6 +67,13 @@
                 {% for category in site.categories %}
                     {% if category[0] == "lab" %}
                         <li><a href="/categories/lab" class="">Lab ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "mogagko" %}
+                        <li><a href="/categories/mogagko" class="">Mogagko ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
