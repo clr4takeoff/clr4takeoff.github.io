@@ -21,38 +21,26 @@ comments: true
 ## Trace 번호 (03)
 
 ### 1. sdriver로 tsh실행
-![Image](https://github.com/user-attachments/assets/0cee330b-2c29-4418-9fa9-8b321628c995)
+![Image](https://github.com/user-attachments/assets/6d871a25-939a-4f4e-be07-3f66f46d0681)
 
 ### 2. sdriver로 tshref실행
-![Image](https://github.com/user-attachments/assets/fbdaea6b-381a-4b21-ab35-b6348bc45af5)
+![Image](https://github.com/user-attachments/assets/66cc95b6-6769-4af9-8d0c-e529d1b757ad)
 
 
 ### 각 trace 별 플로우 차트
-![Image](https://github.com/user-attachments/assets/476bf60b-3ae9-4125-89d1-38a68cefa20f)
+![Image](https://github.com/user-attachments/assets/3461f75a-8b5c-4b5c-846b-ae92c8255dfc)
 
 
 <br><br>
 
 ### trace 해결 방법 설명
-![Image](https://github.com/user-attachments/assets/fc1e9c13-3914-48a7-8d94-a6076bfe5e0c)
-<br>trace02.txt파일을 확인했다. trace02에서는 환경변수를 출력하는 foreground job을 실행시켜야 한다.
-쉘에서 새로운 프로그램을 실행시키려면 fork를 통해 자식 프로세스를 생성하고, 자식 프로세스에서 execve()를 호출하면 된다.
+![Image](https://github.com/user-attachments/assets/d14c2a52-a305-40d9-91b0-287826b83b61)
+<br>trace03은 foreground작업 형태로 매개변수가 없는 프로그램을 실행하는 것을 구현한다.
+trace03.txt파일을 확인했을 때, myspin1 프로그램을 실행하는 것을 알 수 있다.
 
-실행 파일은 myenv이다. myenv.c의 코드는 다음과 같다.
-![Image](https://github.com/user-attachments/assets/8170cf6a-2d02-40a7-81dc-7f6b09cec5d7)
-<br>환경변수를 출력해주는 프로그램이다.
 
-![Image](https://github.com/user-attachments/assets/aa1e9fce-ff88-471a-a4bd-53b6ce595dcf)
-<br>강의 자료를 참고하여 작성한 코드이다.
+![Image](https://github.com/user-attachments/assets/f92741bd-06b7-484e-bc68-c0b69428236d)
+<br>./myspin1은 인자가 없이 프로그램을 실행하도록 한다. 지난 trace까지 구현한 eval()함수를 보자.
+이미 execve()함수를 구현할 때, 이 함수가 받을 인자의 수가 확실하지 않으므로 parseline에 리스트를 넘겨주고 명령어와 인자들을 분리한 바 있다(argv[0]에 내장 명령어나 실행할 프로그램 이름 저장).
 
-우선 cmdline에서 파싱한 argv가 내장 명령어가 아닐 경우 0을 반환하여 첫 번째 if조건문이 참이 되고, child process인지 검증하는 2차 if블록에 걸린다.
-
-fork()함수로 자식 프로세스를 새로 생성할 수 있다. fork()는 부모 프로세스에서는 자신의 pid를 반환하고 자식 프로세스에서는 0을 반환하므로 자식 프로세스에 대한 판단 조건을 (pid=fork())==0으로 작성할 수 있다. 이를 만족할 경우 세 번째 if블록으로 넘어간다.
-
-execve()함수는 argv[0]의 프로그램을 자식 프로세스에서 실행한다. cmdline을 파싱하여 받은 첫 번째 값이 프로그램의 이름이 될 것. environ은 C 표준 라이브러리에서 제공하는 전역 변수이고, 환경 변수를 전달하는 배열이다.
-
-execve() 함수가 성공적으로 호출될 경우 기존 프로세스가 새로운 프로그램으로 대체되어 
-
-return을 하지 않는다. 실패 시 –1을 return한다고 하니, execve(...)<0으로 조건을 설정하여 실패할 경우에 오류 메시지를 출력하고 자식 프로세스를 정상적으로 종료하도록 하여 좀비 프로세스를 방지한다.
-
-부모 프로세스가 자식 프로세스를 100,000μs동안 기다리도록 한다. 이는 자식 프로세스가 명령어를 실행할 시간을 대략 확보하는 역할을 하는 듯하다.
+parseline함수가 cmdline을 parsing하면 argv[0]에 “./myspin1”이 들어가고 argv[1]부터 NULL이 들어간다. 이를 execve함수로 넘겨 인자 없는 프로그램을 실행할 수 있다.
