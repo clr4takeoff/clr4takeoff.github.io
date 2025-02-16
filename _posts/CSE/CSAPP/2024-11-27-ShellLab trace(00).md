@@ -40,10 +40,10 @@ comments: true
 trace00의 eval함수는 사용자가 커맨드라인에 입력한 것을 처리한다.
 간단히 정리하면 EOF입력(ctrl+d) 시 shell이 종료되도록 하면 된다.
 
+![Image](https://github.com/user-attachments/assets/97a10c9c-8fda-4236-b2c0-1b27a1a14d3f)
+<br>eval 함수는 상단 내용으로 구현되어있다.
 
-eval 함수는 상단 내용으로 구현되어있다.
-
-
-main함수를 잘 살펴보면 feof함수로 표준 입력 스트림에서 파일의 끝에 도달했는지 확인한다. 이 조건 만족 시 스트림들을 비우고 남은 데이터들을 출력한 후 exit(0)으로 프로그램을 종료한다. 따라서 현재 eval()함수에 아무 것도 추가하지 않아도 정상적으로 테스트케이스를 통과한다.
+![Image](https://github.com/user-attachments/assets/9505c30d-87e8-4c95-be45-f5274c60ffe5)
+<br>main함수를 잘 살펴보면 feof함수로 표준 입력 스트림에서 파일의 끝에 도달했는지 확인한다. 이 조건 만족 시 스트림들을 비우고 남은 데이터들을 출력한 후 exit(0)으로 프로그램을 종료한다. 따라서 현재 eval()함수에 아무 것도 추가하지 않아도 정상적으로 테스트케이스를 통과한다.
 
 <br><br>
