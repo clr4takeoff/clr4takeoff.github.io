@@ -20,4 +20,9 @@
 <meta name="msapplication-TileImage" content="/assets/images/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
+{% if page.permalink == "/cv/" %}
+  <link rel="stylesheet" href="{{ '/assets/css/cv.css' | relative_url }}">
+{% endif %}
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
 <!-- end custom head snippets -->
