@@ -1,8 +1,7 @@
 ---
 author_profile: true
 permalink: /cv/
-title: "Soyeon Choi"
+title: "CV"
 layout: archive
 ---
 
-cv
