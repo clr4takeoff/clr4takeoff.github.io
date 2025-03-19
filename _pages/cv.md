@@ -30,7 +30,7 @@ header:
 <div class="cv-section">
   <h2>Publications</h2>
   <p><strong>[P1] MyListener: An AI-Mediated Journaling Mobile Application for Alleviating Depression and Loneliness Using Contextual Data</strong><br>
-  Gyeyoung Jung, <u>Soyeon Choi</u>, Yuju Kang, Jaejeung Kim<br>
+  Gyeyoung Jung, <u><b>Soyeon Choi</b></u>, Yuju Kang, Jaejeung Kim<br>
   <em>ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp '24), 2024</em></p>
 </div>
 
