@@ -122,7 +122,12 @@ header:
 
 <div class="cv-section">
   <h2>Skills</h2>
-  <p><strong>Programming Languages:</strong> <span class="iconify" data-icon="vscode-icons:file-type-python"></span> Python, <span class="iconify" data-icon="vscode-icons:file-type-js-official"></span> JavaScript, <span class="iconify" data-icon="vscode-icons:file-type-cpp2"></span> C++, <span class="iconify" data-icon="logos:java" data-inline="false"></span> Java</p>
+  <p><strong>Programming Languages:</strong> 
+    <span class="iconify" data-icon="vscode-icons:file-type-python"></span> Python, 
+    <span class="iconify" data-icon="vscode-icons:file-type-js-official"></span> JavaScript, 
+    <span class="iconify" data-icon="vscode-icons:file-type-cpp2"></span> C++, 
+    <span class="iconify" data-icon="logos:java" data-inline="false"></span> Java,
+    <span class="iconify" data-icon="logos:dart" data-inline="false"></span> Dart</p>
   <p><strong>Tools and Frameworks:</strong> -</p>
   <p><strong>Languages:</strong> Korean (native), English (-), Japanese (-), Chinese (-)</p>
 </div>
