@@ -4,8 +4,6 @@ permalink: /cv/
 title: "Soyeon Choi"
 layout: cv
 header:
-  - text: |
-      <span style="font-size: 1.2em; font-weight: bold;">Applying for: Cooking Engineer</span><br>
   - text: '<span class="iconify" data-icon="tabler:phone"></span> (+82) 000-000-0000<br>'
   - text: '<span class="iconify" data-icon="tabler:mail"></span> jetblue2332@gmail.com'
     link: mailto:jetblue2332@gmail.com
