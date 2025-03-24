@@ -1,0 +1,22 @@
+<div class="podcast-card">
+  <div class="podcast-thumbnail">
+    {% if post.thumbnail %}
+      <!-- front matter에 thumbnail이 지정된 경우 -->
+      <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" width="200" height="200" loading="lazy">
+    {% else %}
+      <!-- thumbnail이 없으면 본문에서 첫 번째 이미지를 추출 -->
+      {% assign first_image = post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first %}
+      {% if first_image %}
+        <img src="{{ first_image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+      {% else %}
+        <img src="/assets/images/default-podcast.jpg" alt="Default Thumbnail" loading="lazy">
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="podcast-info">
+    <h3 class="podcast-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+    <p class="podcast-date">{{ post.date | date: "%Y년 %m월 %d일" }}</p>
+  </div>
+</div>

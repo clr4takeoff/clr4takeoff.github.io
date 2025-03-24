@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main" class="main-container">
+  <div class="sidebar-wrapper">
+    {% include sidebar.html %}
+  </div>
+  <div class="content-wrapper{% if page.podcast_grid %} podcast-page{% endif %}">
+    <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
+    {% if page.podcast_grid %}
+      <div class="podcast-grid">
+        {% assign posts = site.categories.podcasts %}
+        {% for post in posts %}
+          {% include podcast-single.html %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <section class="page__content">
+        {{ content }}
+      </section>
+    {% endif %}
+  </div>
+</div>

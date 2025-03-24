@@ -1,11 +1,11 @@
 ---
 title: "Podcasts"
-layout: archive
+layout: podcast
 permalink: categories/podcasts
+podcast_grid: true
 author_profile: true
 sidebar_main: true
 ---
 
-
 {% assign posts = site.categories.podcasts %}
-{% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
+{% for post in posts %} {% include podcast-single.html %} {% endfor %}
