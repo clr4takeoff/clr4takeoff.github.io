@@ -19,7 +19,7 @@ layout: default
     {% include sidebar.html %}
   </div>
   <div class="content-wrapper{% if page.podcast_grid %} podcast-page{% endif %}">
-    <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
+    <h1 id="page-title" class="page__title" style="padding: 30px;"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
     {% if page.podcast_grid %}
       <div class="podcast-grid">
         {% assign posts = site.categories.podcasts %}

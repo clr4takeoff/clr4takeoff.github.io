@@ -8,23 +8,6 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-// 변수 정의
-$footer-height: 500px;
-
-// 커스텀 스타일
-#main {
-  flex-direction: row;
-  min-height: calc(100vh - #{$footer-height});
-  width: 120%;
-}
-
 .sidebar.sticky {
-  width: 250px;
-  padding: 5px;
   height: 100%;
-}
-
-.page__footer {
-  height: #{$footer-height};
-  width: 100%;
 }
