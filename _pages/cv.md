@@ -47,7 +47,7 @@ header:
     <div class="cv-item-right">01/2024 - Present</div>
   </div>
   <ul>
-    <li>Assisted in data collection, experiment design, and analysis to support ongoing research projects</li>
+    <li>Performed data analysis, designed experiments, and developed AI-powered mobile applications for mental health improvement.</li>
   </ul>
 
   <div class="cv-item">
@@ -56,7 +56,7 @@ header:
     <div class="cv-item-right">12/2023 - 12/2024</div>
   </div>
   <ul>
-    <li>Acted as the club treasurer, overseeing financial management, collecting membership dues, and preparing budgets for club activities</li>
+    <li>Oversaw financial planning and budget management, improving efficiency and transparency for successful club operations.</li>
   </ul>
 
 </div>
@@ -73,7 +73,7 @@ header:
   </div>
   <br>
   <div class="cv-item">
-    <div class="cv-item-left"><strong>Second Prize</strong>, <em>KAIST-CNU 2024 Joint Startup Camp</em></div>
+    <div class="cv-item-left"><strong>2nd Prize</strong>, <em>KAIST-CNU 2024 Joint Startup Camp</em></div>
     <div class="cv-item-right">Startup KAIST, CNU</div>
   </div>
   <div class="cv-item">
@@ -82,7 +82,7 @@ header:
   </div>
   <br>
   <div class="cv-item">
-    <div class="cv-item-left"><strong>Second Prize</strong>, <em>A.B.C.D. Intellectual Property Startup Hackathon</em></div>
+    <div class="cv-item-left"><strong>2nd Prize</strong>, <em>A.B.C.D. Intellectual Property Startup Hackathon</em></div>
     <div class="cv-item-right">CNU Start-up Support</div>
   </div>
   <div class="cv-item">
@@ -91,7 +91,7 @@ header:
   </div>
   <br>
   <div class="cv-item">
-    <div class="cv-item-left"><strong>Second Prize</strong>, <em>2024 CNU SW/AI Project Fair</em></div>
+    <div class="cv-item-left"><strong>2nd Prize</strong>, <em>2024 CNU SW/AI Project Fair</em></div>
     <div class="cv-item-right">CNU CSE</div>
   </div>
   <div class="cv-item">
@@ -100,7 +100,7 @@ header:
   </div>
   <br>
   <div class="cv-item">
-    <div class="cv-item-left"><strong>First Prize</strong>, <em>2023 Collathon</em></div>
+    <div class="cv-item-left"><strong>1st Prize</strong>, <em>2023 Collathon</em></div>
     <div class="cv-item-right">CNU SW Project Group, CNU CSE</div>
   </div>
   <div class="cv-item">
@@ -109,7 +109,7 @@ header:
   </div>
   <br>
   <div class="cv-item">
-    <div class="cv-item-left"><strong>Honorable Mention</strong>, <em>KAIST-CNU 2023 Joint Startup Camp</em></div>
+    <div class="cv-item-left"><strong>3rd Prize(Honorable Mention)</strong>, <em>KAIST-CNU 2023 Joint Startup Camp</em></div>
     <div class="cv-item-right">Startup KAIST, CNU</div>
   </div>
   <div class="cv-item">
@@ -126,6 +126,7 @@ header:
     <span class="iconify" data-icon="vscode-icons:file-type-cpp2"></span> C++, 
     <span class="iconify" data-icon="logos:java" data-inline="false"></span> Java,
     <span class="iconify" data-icon="logos:dart" data-inline="false"></span> Dart</p>
-  <p><strong>Tools and Frameworks:</strong> -</p>
-  <p><strong>Languages:</strong> Korean (native), English (-), Japanese (-), Chinese (-)</p>
+  <p><strong>Tools and Frameworks:</strong> GitHub, Android Studio, Visual Studio Code, Xcode, Flutter, Firebase, Slack, Notion
+</p>
+  <p><strong>Languages:</strong> Korean (native), English (Basic), Japanese (Beginner), Chinese (Beginner)</p>
 </div>
