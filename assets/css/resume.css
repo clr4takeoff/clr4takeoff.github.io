@@ -1,4 +1,4 @@
-.cv-content {
+.resume-content {
     background-color: #FFFFFF;
     color: #000000;
     text-align: justify;
@@ -13,7 +13,7 @@
     padding: 0px 100px !important;
 }
 
-.cv-content .cv-title-section {
+.resume-content .resume-title-section {
     color: #000000;
     padding: 1em;
     text-align: center;
@@ -21,14 +21,14 @@
     font-size: 90%;
 }
 
-.cv-content .cv-name {
+.resume-content .resume-name {
     font-size: 2.25em;
     font-weight: bold;
     margin: 0;
     margin-bottom: 0.5em;
 }
 
-.cv-content .cv-header {
+.resume-content .resume-header {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -38,13 +38,13 @@
     font-size: 0.9em;
 }
 
-.cv-content .cv-header-item:not(.no-separator)::after {
+.resume-content .resume-header-item:not(.no-separator)::after {
     content: " | ";
     color: #FFFFFF;
 }
 
-.cv-content h2,
-.cv-content h3 {
+.resume-content h2,
+.resume-content h3 {
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 1.08em;
@@ -53,114 +53,114 @@
     color: #3498db;
 }
 
-.cv-content ul,
-.cv-content ol {
+.resume-content ul,
+.resume-content ol {
     padding-left: 0em;
     margin: 0.2em 0;
 }
 
-.cv-content ul {
+.resume-content ul {
     list-style-type: circle;
 }
 
-.cv-content ol {
+.resume-content ol {
     list-style-type: decimal;
 }
 
-.cv-content dl {
+.resume-content dl {
     display: flex;
 }
 
-.cv-content dl dt,
-.cv-content dl dd:not(:last-child) {
+.resume-content dl dt,
+.resume-content dl dd:not(:last-child) {
     flex: 1;
 }
 
-.cv-content :not(span.katex-display) > span.katex {
+.resume-content :not(span.katex-display) > span.katex {
     font-size: 0.9em !important;
 }
 
-.cv-content svg.iconify {
+.resume-content svg.iconify {
     vertical-align: -0.2em;
 }
 
-.cv-content img {
+.resume-content img {
     max-width: 100%;
 }
 
-.cv-content [data-scope="cross-ref"][data-part="definitions"] {
+.resume-content [data-scope="cross-ref"][data-part="definitions"] {
     padding-left: 1.2em;
 }
 
-.cv-content [data-scope="cross-ref"][data-part="definition"] p {
+.resume-content [data-scope="cross-ref"][data-part="definition"] p {
     margin-left: 0.5em;
 }
 
-.cv-content [data-scope="cross-ref"][data-part="definition"]::marker {
+.resume-content [data-scope="cross-ref"][data-part="definition"]::marker {
     content: attr(data-label);
 }
 
-.cv-content [data-scope="cross-ref"][data-part="reference"] {
+.resume-content [data-scope="cross-ref"][data-part="reference"] {
     font-size: 100%;
     top: 0;
 }
 
-.dark .cv-content {
+.dark .resume-content {
     background-color: hsl(213, 12%, 15%);
     color: hsl(216, 12%, 84%);
 }
 
 @media print {
-    .dark .cv-content {
+    .dark .resume-content {
         background-color: #FFFFFF;
         color: #000000;
     }
 }
 
-.cv-content .cv-section {
+.resume-content .resume-section {
     margin-bottom: 1.5em;
 }
 
-.cv-content .cv-item {
+.resume-content .resume-item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5em;
 }
 
-.cv-content .cv-item-left {
+.resume-content .resume-item-left {
     flex: 1;
     text-align: left;
     white-space: nowrap;
 }
 
 
-.cv-item-center {
+.resume-item-center {
     flex: 1;
     text-align: center;
 }
 
-.cv-content .cv-item-right {
+.resume-content .resume-item-right {
     flex: 1;
     text-align: right;
 }
 
 @media (max-width: 600px) {
-    .cv-content .cv-header {
+    .resume-content .resume-header {
         flex-direction: column;
         align-items: center;
     }
-    .cv-content .cv-header-item:not(.no-separator)::after {
+    .resume-content .resume-header-item:not(.no-separator)::after {
         content: none;
     }
-    .cv-content .cv-name {
+    .resume-content .resume-name {
         font-size: 1.8em;
     }
-    .cv-content .cv-item {
+    .resume-content .resume-item {
         flex-direction: column;
         text-align: left;
     }
-    .cv-content .cv-item-left,
-    .cv-content .cv-item-right {
+    .resume-content .resume-item-left,
+    .resume-content .resume-item-right {
         text-align: left;
     }
 }

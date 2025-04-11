@@ -17,21 +17,21 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html %}
 
-  <div class="archive cv-content">
-    <div class="cv-title-section">
-      <h1 class="cv-name">{{ page.title }}</h1>
+  <div class="archive resume-content">
+    <div class="resume-title-section">
+      <h1 class="resume-name">{{ page.title }}</h1>
       {% if page.header %}
-        <div class="cv-header resume-header">
+        <div class="resume-header resume-header">
           {% for item in page.header %}
             {% if item.newLine %}
               <br>
             {% endif %}
             {% if item.link %}
-              <a href="{{ item.link }}" {% if item.link contains '@' %}class="u-email"{% endif %} class="cv-header-item">
+              <a href="{{ item.link }}" {% if item.link contains '@' %}class="u-email"{% endif %} class="resume-header-item">
                 {{ item.text | markdownify | replace: '<p>', '' | replace: '</p>', '' }}
               </a>
             {% else %}
-              <span class="cv-header-item">
+              <span class="resume-header-item">
                 {{ item.text | markdownify | replace: '<p>', '' | replace: '</p>', '' }}
               </span>
             {% endif %}
