@@ -47,7 +47,8 @@ header:
     <div class="cv-item-right">01/2024 - Present</div>
   </div>
   <ul>
-    <li>Performed data analysis, designed experiments, and developed AI-powered mobile applications for mental health improvement.</li>
+    <li>Conducted literature review and developed an AI journaling application utilizing LLM.</li>
+    <li>Performing user testing, interviews, and analyzing experimental data to improve user experience and validate research hypotheses.</li>
   </ul>
 
   <div class="cv-item">
@@ -56,7 +57,8 @@ header:
     <div class="cv-item-right">12/2023 - 12/2024</div>
   </div>
   <ul>
-    <li>Oversaw financial planning and budget management, improving efficiency and transparency for successful club operations.</li>
+    <li>Managed budget planning and streamlined transaction records.</li>
+    <li>Facilitated account sharing to improve financial transparency and operational efficiency.</li>
   </ul>
 
 </div>
@@ -68,16 +70,16 @@ header:
     <div class="cv-item-right">CNU SW Project Group</div>
   </div>
   <div class="cv-item">
-    <div class="cv-item-left">Awarded for outstanding performance in the 'IT Business and Ethics' section</div>
+    <div class="cv-item-left">Achieved over 80% in IT Business & Ethics section.</div>
     <div class="cv-item-right">Nov. 2024</div>
   </div>
   <br>
   <div class="cv-item">
     <div class="cv-item-left"><strong>2nd Prize</strong>, <em>KAIST-CNU 2024 Joint Startup Camp</em></div>
-    <div class="cv-item-right">Startup KAIST, CNU</div>
+    <div class="cv-item-right">Startup KAIST, CNU Startup Support Foundation</div>
   </div>
   <div class="cv-item">
-    <div class="cv-item-left">Awarded for outstanding performance in the competition</div>
+    <div class="cv-item-left">Led a team by fostering collaboration and empowering members' strengths.</div>
     <div class="cv-item-right">Aug. 2024</div>
   </div>
   <br>
@@ -86,16 +88,16 @@ header:
     <div class="cv-item-right">CNU Start-up Support</div>
   </div>
   <div class="cv-item">
-    <div class="cv-item-left">Awarded for outstanding performance in the competition</div>
+    <div class="cv-item-left">Devised a patent-driven service model and formulated a strategic branding roadmap.</div>
     <div class="cv-item-right">Jul. 2024</div>
   </div>
   <br>
   <div class="cv-item">
-    <div class="cv-item-left"><strong>2nd Prize</strong>, <em>2024 CNU SW/AI Project Fair</em></div>
+    <div class="cv-item-left"><strong>2nd Prize</strong>, <em>2024 CNU SW/AI Project Fair — Junior category</em></div>
     <div class="cv-item-right">CNU CSE</div>
   </div>
   <div class="cv-item">
-    <div class="cv-item-left">Recognized for excellence in the Creative Works Competition - Junior Category</div>
+    <div class="cv-item-left">Built user-centered software through user interviews and usability testing.</div>
     <div class="cv-item-right">Jun. 2024</div>
   </div>
   <br>
@@ -104,16 +106,16 @@ header:
     <div class="cv-item-right">CNU SW Project Group, CNU CSE</div>
   </div>
   <div class="cv-item">
-    <div class="cv-item-left">Awarded for outstanding performance in the competition</div>
+    <div class="cv-item-left">Conducted user research (n=36) to optimize software usability and maximize business value.</div>
     <div class="cv-item-right">Dec. 2023</div>
   </div>
   <br>
   <div class="cv-item">
     <div class="cv-item-left"><strong>3rd Prize(Honorable Mention)</strong>, <em>KAIST-CNU 2023 Joint Startup Camp</em></div>
-    <div class="cv-item-right">Startup KAIST, CNU</div>
+    <div class="cv-item-right">Startup KAIST, CNU Startup Support Foundation</div>
   </div>
   <div class="cv-item">
-    <div class="cv-item-left">Awarded for outstanding performance in the competition</div>
+    <div class="cv-item-left">Designed user-centered UI and developed a business model based on user needs.</div>
     <div class="cv-item-right">Aug. 2023</div>
   </div>
 </div>
