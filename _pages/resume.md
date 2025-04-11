@@ -111,7 +111,7 @@ header:
   </div>
   <br>
   <div class="resume-item">
-    <div class="resume-item-left"><strong>3rd Prize(Honorable Mention)</strong>, <em>KAIST-CNU 2023 Joint Startup Camp</em></div>
+    <div class="resume-item-left"><strong>3rd Prize</strong>, <em>KAIST-CNU 2023 Joint Startup Camp</em></div>
     <div class="resume-item-right">Startup KAIST, CNU Startup Support Foundation</div>
   </div>
   <div class="resume-item">
