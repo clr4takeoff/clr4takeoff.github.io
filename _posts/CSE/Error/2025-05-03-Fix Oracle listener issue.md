@@ -4,7 +4,10 @@ categories:
   - error
 tags:
   - Error
-  - Markdown
+  - Database
+  - SQLDeveloper
+  - Oracle
+  - Docker
 toc: true
 toc_sticky: true
 
@@ -30,7 +33,13 @@ ORA-12541: Cannot connect. No listener at host localhost port 1521.
 
 <br><br>
 ## 해결 방법
-1. Oracle XE Docker 이미지 설치
+1. Colima 시작
+```bash
+colima start --arch x86_64 --memory 4 --cpu 2
+```
+- Oracle 이미지는 대부분 x86_64 기반으로 빌드되어 있음. 내 노트북 칩은 ARM 아키텍처를 사용해서, Colima로 x86_64 VM을 실행해야함.
+
+2. Oracle XE Docker 이미지 설치
 ```bash
 docker run -d \
   --name <DB 이름> \
