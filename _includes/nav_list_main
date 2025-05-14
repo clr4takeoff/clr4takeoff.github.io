@@ -32,6 +32,13 @@
         </ul>
         <ul>
             {% for category in site.categories %}
+                {% if category[0] == "database" %}
+                    <li><a href="/categories/database" class="">Database ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for category in site.categories %}
                 {% if category[0] == "Algorithm" %}
                     <li><a href="/categories/boj" class="">Baekjoon ({{category[1].size}})</a></li>
                 {% endif %}

@@ -2,6 +2,7 @@
 title: "Fix Oracle listener issue"
 categories:
   - error
+  - database
 tags:
   - Error
   - Database
