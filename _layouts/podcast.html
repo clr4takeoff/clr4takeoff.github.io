@@ -21,12 +21,16 @@ layout: default
   <div class="content-wrapper{% if page.podcast_grid %} podcast-page{% endif %}">
     <h1 id="page-title" class="page__title" style="padding: 30px;"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
     {% if page.podcast_grid %}
-      <div class="podcast-grid">
-        {% assign posts = site.categories.podcasts %}
-        {% for post in posts %}
-          {% include podcast-single.html %}
-        {% endfor %}
-      </div>
+          <div class="podcast-grid" id="podcast-grid">
+      {% assign posts = site.categories.podcasts %}
+      {% for post in posts %}
+  {% include podcast-single.html %}
+{% endfor %}
+
+    </div>
+
+    <div id="pagination" class="pagination"></div>
+
     {% else %}
       <section class="page__content">
         {{ content }}
@@ -34,3 +38,36 @@ layout: default
     {% endif %}
   </div>
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const itemsPerPage = 16;
+    const cards = document.querySelectorAll(".podcast-card");
+    const totalPages = Math.ceil(cards.length / itemsPerPage);
+    const pagination = document.getElementById("pagination");
+
+    function showPage(page) {
+      cards.forEach((card, index) => {
+        card.classList.toggle("active", index >= (page - 1) * itemsPerPage && index < page * itemsPerPage);
+      });
+
+      renderPagination(page);
+    }
+
+    function renderPagination(currentPage) {
+      pagination.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+        btn.classList.toggle("active", i === currentPage);
+        btn.addEventListener("click", () => showPage(i));
+        pagination.appendChild(btn);
+      }
+    }
+
+    // 최초 1페이지 출력
+    showPage(1);
+  });
+</script>

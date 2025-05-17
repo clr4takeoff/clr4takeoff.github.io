@@ -1,5 +1,5 @@
 ---
-title: "Podcasts"
+title: "Podcasts 🎧"
 layout: podcast
 permalink: categories/podcasts
 podcast_grid: true
