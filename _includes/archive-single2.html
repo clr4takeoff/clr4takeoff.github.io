@@ -11,18 +11,28 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="{{ post.url }}">{{post.title}}</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i>{{ post.date | date: " %Y.%m.%d" }}
-              {% if site.category_archive.type and post.categories[0] and site.tag_archive.type and post.tags[0] %}
-                {%- include post__taxonomy.html -%}
-              {% endif %}
-            </small>
-        </div>
-      </article>
-</div>
+  <article class="archive-item">
+    <div>
+      <span>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </span>
 
+      <small> 
+        <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: " %Y.%m.%d" }}
+        {% comment %}
+        <!-- {% if post.categories %}
+          {% for category in post.categories %}
+            <a class="post-category" href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>
+          {% endfor %}
+        {% endif %} -->
+        {% endcomment %}
+
+        {% if post.tags %}
+          {% for tag in post.tags %}
+            <a class="post-tag" href="{{ site.baseurl }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
+          {% endfor %}
+        {% endif %}
+      </small>
+    </div>
+  </article>
+</div>

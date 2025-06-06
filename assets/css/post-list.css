@@ -1,0 +1,17 @@
+.post-tag {
+  display: inline-block;
+  background-color: #f1f3f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  padding: 1px 8px;
+  margin: 2px 4px 2px 0;
+  font-size: 0.75em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.post-tag:hover {
+  background-color: #e0e0e0;
+  text-decoration: none;
+}
