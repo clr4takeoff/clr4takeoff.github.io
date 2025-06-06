@@ -8,6 +8,12 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+// Custom styles
 .sidebar.sticky {
   height: 100%;
+}
+
+// 제목 색상 오버라이드
+.archive__item-title a {
+  color: #3b71b0;
 }
