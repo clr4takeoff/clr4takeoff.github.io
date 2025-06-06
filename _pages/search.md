@@ -3,6 +3,7 @@ author_profile: true
 layout: search
 page_title: Search
 permalink: /search/
+sidebar_main: true
 ---
 
 ## Search 🔎

@@ -3,6 +3,7 @@ author_profile: true
 permalink: /resume/
 title: "Soyeon Choi"
 layout: resume
+sidebar_main: true
 header:
   - text: '<span class="iconify" data-icon="tabler:phone"></span> (+82) 000-000-0000<br>'
   - text: '<span class="iconify" data-icon="tabler:mail"></span> jetblue2332@gmail.com'
