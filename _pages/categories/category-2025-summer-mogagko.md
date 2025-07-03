@@ -1,7 +1,7 @@
 ---
 title: "2025 하계 모각코"
 layout: archive
-permalink: /categories/summer-2025/
+permalink: /categories/2025-summer-mogagko/
 author_profile: true
 sidebar_main: true
 ---
