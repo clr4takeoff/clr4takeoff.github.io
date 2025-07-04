@@ -9,8 +9,8 @@ sidebar_main: true
 <h2 style="font-size: 1.5rem; margin-bottom: 15px;">모각코 시즌 선택</h2>
 
 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-  <button onclick="showSeason('winter')" style="padding: 10px 15px; border-radius: 5px; border: 1px solid #ccc;">❄️ 2024-2025 동계 모각코</button>
-  <button onclick="showSeason('summer')" style="padding: 10px 15px; border-radius: 5px; border: 1px solid #ccc;">🌞 2025 하계 모각코</button>
+  <button class="season-button" onclick="showSeason('winter')">❄️ 2024-2025 동계 모각코</button>
+  <button class="season-button" onclick="showSeason('summer')">🌞 2025 하계 모각코</button>
 </div>
 
 <!-- 동계 모각코 영역 -->
@@ -73,12 +73,24 @@ sidebar_main: true
 
 <script>
 function showSeason(season) {
+  // 콘텐츠 표시
   document.getElementById('season-winter').style.display = (season === 'winter') ? 'block' : 'none';
   document.getElementById('season-summer').style.display = (season === 'summer') ? 'block' : 'none';
+
+  // 버튼 강조
+  const buttons = document.querySelectorAll('.season-button');
+  buttons.forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/showSeason\(['"]([^'"]+)['"]\)/);
+    if (match && match[1] === season) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const buttons = document.querySelectorAll('button[onclick^="showSeason"]');
+  const buttons = document.querySelectorAll('.season-button');
   if (buttons.length > 0) {
     const lastButton = buttons[buttons.length - 1];
     const match = lastButton.getAttribute('onclick').match(/showSeason\(['"]([^'"]+)['"]\)/);
@@ -89,4 +101,19 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<style>
+.season-button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
+.season-button.active {
+  background-color: #4982C0FF;
+  color: white;
+  border-color: #4982C0FF;
+}
+</style>
