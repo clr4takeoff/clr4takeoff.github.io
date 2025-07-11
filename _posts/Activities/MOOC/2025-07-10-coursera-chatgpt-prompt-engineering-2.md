@@ -65,7 +65,7 @@ Based on the “ChatGPT Prompt Engineering for Developers” course by DeepLearn
 ![GPT Prompt 3](/assets/posts/ACTIV/Mooc/250710/gpt-prompt-3.png)
 
 - Target audience에 따라 tone도 조절 가능함
-  - Consumer → 감성적, marketing tone
+  - Consumer → 감성적, marketing tonef
   - Furniture retailer → 기술적, 재질 중심 정보 제공
 
 
