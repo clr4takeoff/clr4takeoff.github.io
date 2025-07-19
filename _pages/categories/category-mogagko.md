@@ -10,13 +10,13 @@ sidebar_main: true
 <h2 style="font-size: 1.5rem; margin-bottom: 15px;">모각코 시즌 선택</h2>
 
 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-  <button class="season-button" onclick="showSeason('winter')">❄️ 2024-2025 동계 모각코</button>
+  <button class="season-button" onclick="showSeason('winter')">❄️ 2024 동계 모각코</button>
   <button class="season-button" onclick="showSeason('summer')">🌞 2025 하계 모각코</button>
 </div>
 
 <!-- 동계 모각코 영역 -->
 <div id="season-winter" style="display: none;">
-  <h2 style="font-size: 1.5rem;">2024-2025 동계 모각코 ❄️</h2>
+  <h2 style="font-size: 1.5rem;">2024 동계 모각코 ❄️</h2>
 
   <h3>Group Posts 👥</h3>
   <div class="entries-group" style="background-color: #F3F3F3; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
