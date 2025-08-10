@@ -48,8 +48,9 @@ header:
     <div class="resume-item-right">01/2024 - Present</div>
   </div>
   <ul>
-    <li>Conducted literature review and developed an AI journaling application utilizing LLM.</li>
-    <li>Performing user testing, interviews, and analyzing experimental data to improve user experience and validate research hypotheses.</li>
+    - Conducted literature review and developed an AI journaling application utilizing LLM
+    <br>
+    - Performing user testing, interviews, and analyzing experimental data to improve user experience and validate research hypotheses.
   </ul>
 
   <div class="resume-item">
@@ -58,8 +59,9 @@ header:
     <div class="resume-item-right">12/2023 - 12/2024</div>
   </div>
   <ul>
-    <li>Managed budget planning and streamlined transaction records.</li>
-    <li>Facilitated account sharing to improve financial transparency and operational efficiency.</li>
+    - Managed budget planning and streamlined transaction records.
+    <br>
+    - Facilitated account sharing to improve financial transparency and operational efficiency.
   </ul>
 
 </div>
@@ -75,7 +77,7 @@ header:
     </div>
     <div class="resume-item">
       <div class="resume-item-left">Verified proficiency in SQL, relational schema design, and query optimization.</div>
-      <div class="resume-item-right">May 2024</div>
+      <div class="resume-item-right">May. 2024</div>
     </div>
   </div>
 </div>
