@@ -65,6 +65,23 @@ header:
 </div>
 
 <div class="resume-section">
+  <h2>Certifications</h2>
+  <div class="cert-block">
+    <div class="resume-item">
+      <div class="resume-item-left">
+        <strong> SQLD (SQL Developer)</strong>
+      </div>
+      <div class="resume-item-right">Korea Data Agency (K-DATA)</div>
+    </div>
+    <div class="resume-item">
+      <div class="resume-item-left">Verified proficiency in SQL, relational schema design, and query optimization.</div>
+      <div class="resume-item-right">May 2024</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="resume-section">
   <h2>Awards and Honors</h2>
   <div class="resume-item">
     <div class="resume-item-left"><strong>TOPCIT 'IT Business and Ethics' Excellence Award</strong></div>
