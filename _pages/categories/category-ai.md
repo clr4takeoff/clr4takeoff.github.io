@@ -1,5 +1,5 @@
 ---
-title: "ai"
+title: "Ai"
 layout: archive
 permalink: categories/ai
 author_profile: true
