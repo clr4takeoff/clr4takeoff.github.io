@@ -135,7 +135,7 @@ FOR each bag:
     CurrentHumanSample = SampleFromPool(UnusedHumanData)
     UnusedHumanData.Remove(CurrentHumanSample) // 중복 제거
     
-    // A AI 데이터와 합쳐서 이번 bag 학습용 데이터 구성
+    // AI 데이터와 합쳐서 이번 bag 학습용 데이터 구성
     Bag = Combine(CurrentHumanSample, AI_Data)
 END
 ```
@@ -182,7 +182,7 @@ END
 ```
 CLASS AutomatedBalancedLoader EXTENDS StandardDataLoader:
     METHOD OnStartNewEpoch():
-        // 새 에폭 시작 시 데이터셋을 한 번 리샘플링
+        // 새 Epoch 시작 시 데이터셋을 한 번 리샘플링
         IF Dataset has ResampleAbility:
             Dataset.ExecuteResampling()
             
