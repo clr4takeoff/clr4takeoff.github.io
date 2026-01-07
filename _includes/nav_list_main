@@ -123,15 +123,8 @@
             <span class="nav__sub-title">ETC</span>
                 <ul>
                     {% for category in site.categories %}
-                        {% if category[0] == "daily" %}
-                            <li><a href="/categories/daily" class="">Daily ({{category[1].size}})</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-                <ul>
-                    {% for category in site.categories %}
-                        {% if category[0] == "shower-thoughts" %}
-                            <li><a href="/categories/shower-thoughts" class="">Shower thoughts({{category[1].size}})</a></li>
+                        {% if category[0] == "trip" %}
+                            <li><a href="/categories/trip" class="">Trip ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
