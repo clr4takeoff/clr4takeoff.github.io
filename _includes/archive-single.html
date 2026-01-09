@@ -24,6 +24,15 @@
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
+    <p class="page__meta">
+      {% assign filename = post.path | split: "/" | last %}
+      {% assign file_date = filename | slice: 0, 10 %}
+      <time datetime="{{ file_date }}">{{ file_date }}</time>
+    </p>
+
+
+
+
     {% include page__meta.html type=include.type %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
   </article>
