@@ -1,0 +1,19 @@
+US-HI:
+  name: "Hawaii"
+  lat: 21.3069
+  lng: -157.8583
+
+JP-FUK:
+  name: "Fukuoka"
+  lat: 33.5902
+  lng: 130.4017
+
+HK-HK:
+  name: "Hong Kong"
+  lat: 22.3193
+  lng: 114.1694
+
+MO-MO:
+  name: "Macau"
+  lat: 22.1987
+  lng: 113.5439
