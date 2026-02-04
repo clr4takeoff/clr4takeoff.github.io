@@ -83,6 +83,13 @@
             </ul>
 
         <span class="nav__sub-title">Activities</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "trip" %}
+                            <li><a href="/categories/trip" class="">Trip ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "conference" %}
@@ -119,15 +126,6 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-
-            <span class="nav__sub-title">ETC</span>
-                <ul>
-                    {% for category in site.categories %}
-                        {% if category[0] == "trip" %}
-                            <li><a href="/categories/trip" class="">Trip ({{category[1].size}})</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
       </li>
   </ul>
 </nav>
