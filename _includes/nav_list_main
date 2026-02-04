@@ -106,6 +106,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "unlv" %}
+                        <li><a href="/categories/unlv" class="">UNLV ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "mogagko" %}
                         <li><a href="/categories/mogagko" class="">Mogagko ({{category[1].size}})</a></li>
                     {% endif %}
