@@ -17,3 +17,8 @@ MO-MO:
   name: "Macau"
   lat: 22.1987
   lng: 113.5439
+
+US-NV:
+  name: "Las Vegas"
+  lat: 36.1699
+  lng: -115.1398

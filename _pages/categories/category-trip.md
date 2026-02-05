@@ -12,18 +12,18 @@ sidebar_main: true
 <div id="trip-map" style="height: 700px; width: 1000px;"></div>
 
 <script>
-  // trip 카테고리 글 중 trip_location 있는 글만 뽑기
+  // 전체 글 중 trip_location 있는 글만 뽑기 (카테고리 무관)
+  {% assign geo_posts = site.posts | where_exp: "p", "p.trip_location" %}
+
   window.TRIP_POSTS = [
-    {% assign trips = site.categories.trip %}
-    {% for p in trips %}
-      {% if p.trip_location %}
+    {% for p in geo_posts %}
       {
         title: {{ p.title | jsonify }},
         url: {{ p.url | relative_url | jsonify }},
         date: {{ p.date | date: "%Y-%m-%d" | jsonify }},
-        loc: {{ p.trip_location | upcase | jsonify }}
+        loc: {{ p.trip_location | upcase | jsonify }},
+        categories: {{ p.categories | jsonify }}
       }{% unless forloop.last %},{% endunless %}
-      {% endif %}
     {% endfor %}
   ];
 
