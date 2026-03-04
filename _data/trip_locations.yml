@@ -27,3 +27,13 @@ US-CA:
   name: "Los Angeles"
   lat: 34.0522
   lng: -118.2437
+
+US-UT:
+  name: "Utah"
+  lat: 40.7608
+  lng: -111.8910
+
+US-AZ:
+  name: "Arizona"
+  lat: 33.4484
+  lng: -112.0740
