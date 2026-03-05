@@ -19,12 +19,12 @@ MO-MO:
   lng: 113.5439
 
 US-NV:
-  name: "Las Vegas"
+  name: "Nevada"
   lat: 36.1699
   lng: -115.1398
   
 US-CA:
-  name: "Los Angeles"
+  name: "California"
   lat: 34.0522
   lng: -118.2437
 
