@@ -29,6 +29,40 @@
     }[m]));
   }
 
+  const PAGE_SIZE = 10;
+
+  function buildPopupContent(locName, sorted, page) {
+    const total = sorted.length;
+    const totalPages = Math.ceil(total / PAGE_SIZE);
+    const pagePosts = sorted.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
+    const nav = total > PAGE_SIZE ? `
+      <div class="trip-popup__pagination">
+        <button class="trip-popup__nav" data-dir="-1" ${page === 0 ? "disabled" : ""}>&#8249;</button>
+        <span class="trip-popup__page">${page + 1} / ${totalPages}</span>
+        <button class="trip-popup__nav" data-dir="1" ${page >= totalPages - 1 ? "disabled" : ""}>&#8250;</button>
+      </div>
+    ` : "";
+
+    return `
+      <div class="trip-popup">
+        <div class="trip-popup__title">
+          ${escapeHtml(locName)}
+          <span class="trip-popup__count">(${total})</span>
+        </div>
+        <div class="trip-popup__list">
+          ${pagePosts.map((p) => `
+            <div class="trip-popup__item">
+              <a class="trip-popup__link" href="${p.url}">${escapeHtml(p.title)}</a>
+              <span class="trip-popup__date">${p.date}</span>
+            </div>
+          `).join("")}
+        </div>
+        ${nav}
+      </div>
+    `;
+  }
+
   // loc별로 글 묶기
   const byLoc = new Map();
   for (const p of window.TRIP_POSTS) {
@@ -48,67 +82,81 @@
     const marker = L.marker([info.lat, info.lng]).addTo(map);
     bounds.push([info.lat, info.lng]);
 
-    marker.bindPopup(
-      `
-      <div class="trip-popup">
-        <div class="trip-popup__title">
-          ${escapeHtml(info.name)}
-          <span class="trip-popup__count">(${sorted.length})</span>
-        </div>
-
-        <div class="trip-popup__list">
-          ${sorted
-            .map(
-              (p) => `
-              <div class="trip-popup__item">
-                <a class="trip-popup__link" href="${p.url}">${escapeHtml(p.title)}</a>
-                <span class="trip-popup__date">${p.date}</span>
-              </div>
-            `
-            )
-            .join("")}
-        </div>
-      </div>
-      `,
-      {
-        maxWidth: 360,
-        autoPanPadding: [24, 24],
-        closeButton: true
-      }
-    );
-
-    // --- 여기부터: hover 시 열리되, 팝업 위로 이동하면 닫히지 않게 처리 ---
+    let currentPage = 0;
     let isOverPopup = false;
+    let isNavigating = false;
+    let navTimer = null;
+
+    const popup = L.popup({
+      maxWidth: 360,
+      autoPanPadding: [24, 24],
+      closeButton: true
+    }).setContent(buildPopupContent(info.name, sorted, currentPage));
+
+    marker.bindPopup(popup);
 
     marker.on("popupopen", (e) => {
       const popupEl = e.popup.getElement();
       if (!popupEl) return;
 
-      // 팝업 위에 있으면 닫지 않도록 상태 유지
+      if (popupEl._tripListenersAdded) return;
+      popupEl._tripListenersAdded = true;
+
       popupEl.addEventListener("mouseenter", () => {
         isOverPopup = true;
       });
 
       popupEl.addEventListener("mouseleave", () => {
+        // 화살표 클릭 직후 크기 변화로 인한 spurious mouseleave 차단
+        if (isNavigating) return;
         isOverPopup = false;
         marker.closePopup();
       });
+
+      popupEl.addEventListener("click", (evt) => {
+        const btn = evt.target.closest(".trip-popup__nav");
+        if (!btn || btn.disabled) return;
+
+        evt.stopPropagation();
+        isNavigating = true;
+        clearTimeout(navTimer);
+
+        const dir = parseInt(btn.dataset.dir, 10);
+        const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
+        currentPage = Math.max(0, Math.min(totalPages - 1, currentPage + dir));
+        popup.setContent(buildPopupContent(info.name, sorted, currentPage));
+
+        // 팝업 크기 재계산 후 마우스가 실제로 나갔는지 확인
+        navTimer = setTimeout(() => {
+          isNavigating = false;
+          if (!popupEl.matches(":hover")) {
+            isOverPopup = false;
+            marker.closePopup();
+          }
+        }, 200);
+      });
     });
 
-    marker.on("mouseover", () => marker.openPopup());
+    marker.on("popupclose", () => {
+      isNavigating = false;
+      clearTimeout(navTimer);
+    });
+
+    marker.on("mouseover", () => {
+      currentPage = 0;
+      popup.setContent(buildPopupContent(info.name, sorted, currentPage));
+      marker.openPopup();
+    });
 
     marker.on("mouseout", () => {
-      // 마커 -> 팝업으로 커서 이동하는 찰나를 흡수
       setTimeout(() => {
         if (!isOverPopup) marker.closePopup();
       }, 50);
     });
 
     marker.on("click", () => marker.openPopup());
-    // --- 여기까지 ---
   }
 
-  // 마커들이 화면에 다 보이도록 자동 줌 (마커 2개 이상일 때만)
   if (bounds.length >= 2) {
     map.fitBounds(bounds, { padding: [30, 30] });
   } else if (bounds.length === 1) {
