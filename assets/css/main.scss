@@ -18,7 +18,7 @@ search: false
   color: #3b71b0;
 }
 
-\.trip-popup__pagination {
+.trip-popup__pagination {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,8 +37,14 @@ search: false
   padding: 2px 8px;
   color: #333;
 
-  &:hover:not(:disabled) { background: #f0f0f0; }
-  &:disabled { opacity: 0.3; cursor: default; }
+  &:hover:not(:disabled) {
+    background: #f0f0f0;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
 }
 
 .trip-popup__page {
@@ -46,6 +52,8 @@ search: false
   color: #666;
 }
 
-body {
-  cursor: url("/assets/cursor/airplane.png"), auto;
+// 비행기 커서 전용: 모든 요소 기본 커서 제거
+// (호버 시 손가락 복원은 JS의 동적 <style> 태그가 담당)
+*, *::before, *::after {
+  cursor: none !important;
 }
