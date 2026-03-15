@@ -160,19 +160,51 @@ article.archive-item {
   }
 }
 
-// ── 헤더: 솔리드 화이트 ──
+/// ── 헤더: 하늘색 그라디언트 ──
 .masthead {
-  background: #ffffff !important;
-  border-bottom: 1px solid rgba(180, 215, 240, 0.4);
+  background: linear-gradient(
+    to bottom,
+    rgba(168, 212, 240, 0.95),
+    rgba(198, 230, 248, 0.90)
+  ) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(140, 190, 230, 0.4);
 }
 
-.greedy-nav .hidden-links,
-.greedy-nav button {
-  background: #ffffff !important;
+// greedy-nav 자체는 투명 — masthead 그라디언트가 보이도록
+.greedy-nav {
+  background: transparent !important;
+
+  // 링크: 하늘 배경에서 잘 보이는 네이비
+  a {
+    color: #1a3a5c !important;
+
+    &:hover {
+      color: #0d2540 !important;
+    }
+  }
 }
 
+// 호버 언더라인: 네이비
 .greedy-nav .visible-links a::before {
   height: 2px !important;
+  background: #1a3a5c !important;
+}
+
+// 드롭다운 메뉴: 글래스 처리
+.greedy-nav .hidden-links {
+  background: rgba(235, 248, 255, 0.92) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(140, 190, 230, 0.5) !important;
+  box-shadow: 0 4px 16px rgba(80, 140, 210, 0.15) !important;
+}
+
+// 토글 버튼(햄버거): 투명 배경
+.greedy-nav button {
+  background: transparent !important;
+  color: #1a3a5c;
 }
 
 // ── 사이드바: 투명 배경 + 자식 요소별 분리 박스 ──
