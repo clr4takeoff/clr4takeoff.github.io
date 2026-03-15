@@ -8,6 +8,7 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+
 // Custom styles
 .sidebar.sticky {
   height: 100%;
@@ -54,6 +55,113 @@ search: false
 
 // 비행기 커서 전용: 모든 요소 기본 커서 제거
 // (호버 시 손가락 복원은 JS의 동적 <style> 태그가 담당)
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   cursor: none !important;
+}
+
+// --- 비행기 창문 프로필 (Airplane Window Avatar) ---
+.author__avatar,
+.sidebar .author__avatar {
+  border: none !important; // 부모 컨테이너에 적용된 테마 테두리 제거 
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.author__avatar img {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100% !important; // 기성 테마의 max-width: 110px 제한 무력화 (오른쪽 빈 공간 제거)
+  object-fit: cover;
+  margin: 0;
+  display: block; // 이미지 하단 여백 제거
+  padding: 0 !important; // 기본 테마 여백 완전 제거 (꽉 차게 보이기 위함)
+  background-color: white !important; // 배경색
+  border: none !important; // 기본 테마의 1px 청록색(테마) 보더 제거
+}
+
+.author__avatar>a {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 220px;
+  margin: 0 auto;
+  // 비행기 창문 특유의 알약 형태 (완전한 반원)
+  border-radius: 75px 75px 75px 75px;
+  overflow: hidden;
+  background-color: #87ceeb; // 혹시 이미지가 로드 안될 때의 하늘색
+
+  // 1. 외벽 (Fuselage) 창틀 감싸는 메탈/플라스틱 프레임
+  border: 18px solid #bac4d1; // 배경과 확연히 구분되는 약간 어두운 금속 느낌
+  box-shadow:
+    // 바깥쪽 벽면 입체감 (하얀 배경에서 확실하게 뜨도록 그림자 강화)
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.8), // 프레임 안쪽 밝은 부분
+    // 창문 안쪽으로 깊이 파인 프레임 그림자
+    inset -4px -4px 15px rgba(0, 0, 0, 0.15),
+    inset 0 12px 25px rgba(0, 0, 0, 0.6); // 위에서 떨어지는 짙은 그림자, 이상한 검은 선 삭제
+
+  // 2. 두꺼운 유리 반사광 (Glass Reflection)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50px;
+
+    // 대각선으로 빛나는 유리 반사 효과
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0) 32%,
+        rgba(255, 255, 255, 0) 100%);
+
+    // 유리의 곡면을 돋보이게 하는 하이라이트
+    box-shadow:
+      inset 6px 6px 12px rgba(255, 255, 255, 0.3),
+      inset -4px -4px 15px rgba(0, 0, 0, 0.1);
+
+    pointer-events: none; // 클릭 방해 방지
+    z-index: 10;
+  }
+
+  // 3. 창문 덮개(블라인드, Window Shade)
+  &::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -5%;
+    width: 110%; // 내부 굴곡을 가릴 만큼 충분히 넓게
+    height: 120%;
+
+    // 덮개의 텍스처 (매끄러운 플라스틱 재질처럼 단색 계열로 변경)
+    background-color: #e9ecef; // 약간 어두운 오프화이트/회색빛으로 변경
+
+    // 하단 손잡이 바 모양 구현
+    border-bottom: 25px solid #d4d9de;
+    border-radius: 0 0 20px 20px;
+
+    // 블라인드가 내는 입체 그림자 및 손잡이 윗선 하이라이트
+    box-shadow:
+      0 12px 20px rgba(0, 0, 0, 0.7),
+      inset 0 -6px 8px rgba(255, 255, 255, 0.6);
+
+    z-index: 20;
+
+    // 약간의 탄성감을 줘서 스르륵 닫히는 느낌
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    // 기본 상태: 위로 올려져 있어서 하단 손잡이 둥근 부분만 살짝 보임
+    transform: translateY(-88%);
+  }
+
+  // 호버 시: 블라인드가 닫힘 (가려지게 끝까지 내려옴)
+  &:hover::after {
+    // 덮친 후에도 손잡이가 보일락 말락하도록 -5%
+    transform: translateY(-8%);
+  }
 }
