@@ -92,7 +92,8 @@ html, body {
 }
 
 // ── 포스트 카드: 반투명 유리창 ──
-article.archive__item {
+article.archive__item,
+article.archive-item {
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -120,9 +121,34 @@ article.archive__item {
     margin-bottom: 0;
   }
 
+  // post-list.css의 border-bottom 무효화
+  border-bottom: none;
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(80, 140, 210, 0.15);
+  }
+}
+
+// ── 커스텀 컨테이너 안에서는 글래스 카드 해제 ──
+// (.entries-group / .entries-individual 로 직접 스타일링하는 페이지: CSAPP, Mogagko 등)
+.entries-group,
+.entries-individual {
+  article.archive-item {
+    background: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    transition: none !important;
+
+    &:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
   }
 }
 
