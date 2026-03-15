@@ -117,11 +117,8 @@ author:
   avatar           : assets/profile/profile.JPG
   bio              : "Just heat and serve!"
   location         : "HI 96815, USA"
-  email            :
+  email            : "jetblue2332@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: jetblue2332@gmail.com
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"

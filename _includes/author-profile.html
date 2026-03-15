@@ -49,7 +49,7 @@
 
       {% if author.email %}
         <li>
-          <a href="mailto:{{ author.email }}" rel="me" class="u-email">
+          <a href="javascript:void(0);" onclick="navigator.clipboard.writeText('{{ author.email }}'); alert('이메일 주소({{ author.email }})가 클립보드에 복사되었습니다.');" rel="me" class="u-email">
             <meta itemprop="email" content="{{ author.email }}" />
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
           </a>
