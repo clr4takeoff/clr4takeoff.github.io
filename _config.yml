@@ -122,9 +122,6 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: jetblue2332@gmail.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: https://clr4takeoff.github.io/
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
