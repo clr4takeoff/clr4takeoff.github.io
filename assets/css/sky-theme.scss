@@ -1,0 +1,189 @@
+---
+# Sky & Cloud Theme Styles
+search: false
+---
+
+/* ==========================================================================
+   Sky & Cloud Theme — 전체 페이지 배경 + 구름 애니메이션
+   ========================================================================== */
+
+// 전체 페이지 하늘 배경 (헤더/푸터 포함)
+html, body {
+  background: linear-gradient(
+    180deg,
+    #a8d4f0 0%,
+    #c6e6f8 18%,
+    #ddf0fb 42%,
+    #eef8fd 68%,
+    #f4fafe 100%
+  ) fixed;
+  min-height: 100%;
+}
+
+// 기존 #main 배경 제거 (body 배경에 통일)
+#main {
+  background: transparent;
+}
+
+// 기존 테마의 흰색 배경을 제거하여 하늘이 보이게 함
+.initial-content {
+  background-color: transparent !important;
+}
+
+// ── 구름 씬: fixed 전체화면 레이어, 모든 콘텐츠 뒤에 위치 ──
+.sky-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+// 포스트 읽는 페이지에서는 구름 애니메이션 정지
+.layout--single .sky-scene .cloud {
+  animation-play-state: paused !important;
+}
+
+// ── 구름 공통 ──
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  width: 260px;
+  height: 100px;
+  filter: drop-shadow(0 4px 12px rgba(140, 190, 230, 0.25)) opacity(0.9);
+}
+
+// puff: 겹침 선 없이 하나의 덩어리처럼 보이도록 완전 흰색 사용
+.cloud__puff {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.cloud__puff--a { width: 110px; height: 80px; bottom: 0; left: 40px; }
+.cloud__puff--b { width: 80px;  height: 60px; bottom: 0; left: 10px; }
+.cloud__puff--c { width: 90px;  height: 65px; bottom: 0; left: 110px; }
+
+// ── 구름 개별 위치·속도 ──
+.cloud--1 { top: 7vh;  animation: cloud-1 40s linear -5s  infinite; transform: scale(1.15); }
+.cloud--2 { top: 20vh; animation: cloud-2 58s linear -18s infinite; transform: scale(0.80); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.2)) opacity(0.7); }
+.cloud--3 { top: 45vh; animation: cloud-3 48s linear -30s infinite; transform: scale(1.00); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.2)) opacity(0.8); }
+.cloud--4 { top: 65vh; animation: cloud-4 68s linear -8s  infinite; transform: scale(0.65); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.15)) opacity(0.55); }
+.cloud--5 { top: 82vh; animation: cloud-5 52s linear -22s infinite; transform: scale(0.85); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.18)) opacity(0.65); }
+
+@keyframes cloud-1 { from { transform: translateX(-300px) scale(1.15); } to { transform: translateX(calc(100vw + 300px)) scale(1.15); } }
+@keyframes cloud-2 { from { transform: translateX(-280px) scale(0.80); } to { transform: translateX(calc(100vw + 280px)) scale(0.80); } }
+@keyframes cloud-3 { from { transform: translateX(-300px) scale(1.00); } to { transform: translateX(calc(100vw + 300px)) scale(1.00); } }
+@keyframes cloud-4 { from { transform: translateX(-260px) scale(0.65); } to { transform: translateX(calc(100vw + 260px)) scale(0.65); } }
+@keyframes cloud-5 { from { transform: translateX(-280px) scale(0.85); } to { transform: translateX(calc(100vw + 280px)) scale(0.85); } }
+
+// ── 콘텐츠가 구름 위에 오도록 z-index 관리 ──
+.initial-content,
+#main,
+.archive,
+.entries-list,
+.entries-grid,
+.page__footer footer {
+  position: relative;
+  z-index: 1;
+}
+
+// ── 포스트 카드: 반투명 유리창 ──
+article.archive__item {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(180, 215, 240, 0.45);
+  box-shadow: 0 2px 10px rgba(100, 160, 220, 0.1);
+  padding: 1.2em 1.4em;
+  margin-bottom: 1.2em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  .archive__item-title {
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
+    font-size: 1.1em;
+  }
+
+  .archive__item-excerpt {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 0.85em;
+  }
+
+  .page__meta {
+    margin-top: 0.3em;
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(80, 140, 210, 0.15);
+  }
+}
+
+// ── 헤더: 솔리드 화이트 ──
+.masthead {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(180, 215, 240, 0.4);
+}
+
+.greedy-nav .hidden-links,
+.greedy-nav button {
+  background: #ffffff !important;
+}
+
+.greedy-nav .visible-links a::before {
+  height: 2px !important;
+}
+
+// ── 사이드바: 투명 배경 + 자식 요소별 분리 박스 ──
+.sidebar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  color: #333;
+}
+
+%glass-box {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 14px;
+  border: 1px solid rgba(180, 215, 240, 0.5);
+  box-shadow: 0 4px 16px rgba(100, 160, 220, 0.1);
+  padding: 1em 1.2em;
+}
+
+// ① 프로필 박스
+.sidebar .h-card {
+  @extend %glass-box;
+  margin-bottom: 1em;
+  color: #333;
+
+  .author__name { color: #222; }
+}
+
+// ② 카테고리 박스: 항목이 채워진 경우에만 표시
+//    :has(li) — JS로 항목이 추가된 후에만 glass-box 배경이 보임
+.sidebar .nav__list:has(li) {
+  @extend %glass-box;
+  color: #333;
+}
+
+// ── "Recent Posts" 제목 하늘색 강조 ──
+.archive__subtitle {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  color: #2e6fa3;
+  text-shadow: 0 1px 6px rgba(200, 230, 255, 0.9);
+  letter-spacing: 0.02em;
+}

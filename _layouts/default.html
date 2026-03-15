@@ -57,6 +57,36 @@
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
     {% include_cached skip-links.html %}
+
+    <!-- Full-page sky + cloud layer (fixed, behind everything) -->
+    <div class="sky-scene" aria-hidden="true">
+      <div class="cloud cloud--1">
+        <div class="cloud__puff cloud__puff--a"></div>
+        <div class="cloud__puff cloud__puff--b"></div>
+        <div class="cloud__puff cloud__puff--c"></div>
+      </div>
+      <div class="cloud cloud--2">
+        <div class="cloud__puff cloud__puff--a"></div>
+        <div class="cloud__puff cloud__puff--b"></div>
+        <div class="cloud__puff cloud__puff--c"></div>
+      </div>
+      <div class="cloud cloud--3">
+        <div class="cloud__puff cloud__puff--a"></div>
+        <div class="cloud__puff cloud__puff--b"></div>
+        <div class="cloud__puff cloud__puff--c"></div>
+      </div>
+      <div class="cloud cloud--4">
+        <div class="cloud__puff cloud__puff--a"></div>
+        <div class="cloud__puff cloud__puff--b"></div>
+        <div class="cloud__puff cloud__puff--c"></div>
+      </div>
+      <div class="cloud cloud--5">
+        <div class="cloud__puff cloud__puff--a"></div>
+        <div class="cloud__puff cloud__puff--b"></div>
+        <div class="cloud__puff cloud__puff--c"></div>
+      </div>
+    </div>
+
     {% include_cached masthead.html %}
 
     <div class="initial-content">
