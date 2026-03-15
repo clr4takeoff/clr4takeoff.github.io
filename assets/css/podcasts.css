@@ -89,11 +89,3 @@
 }
 
 
-.main-container { /* 하단 페이지네이션 버튼 가운데 정렬 */
-  display: flex;
-  justify-content: center;
-}
-
-#page-title {
-  transform: translateX(-30px);
-}

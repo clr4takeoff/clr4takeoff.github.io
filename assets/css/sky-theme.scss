@@ -91,6 +91,14 @@ html, body {
   z-index: 1;
 }
 
+// ── 사이드바 ↔ 콘텐츠 간격 ──
+@media (min-width: 1024px) {
+  .archive,
+  .page {
+    padding-inline-start: 2em;
+  }
+}
+
 // ── 포스트 카드: 반투명 유리창 ──
 article.archive__item,
 article.archive-item {
