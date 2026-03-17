@@ -43,6 +43,17 @@ header:
   <h2>Experience</h2>
 
   <div class="resume-item">
+    <div class="resume-item-left"><strong>Short-term Student</strong></div>
+    <div class="resume-item-center">UNLV Experiential & Cultural Program</div>
+    <div class="resume-item-right">02/2026</div>
+  </div>
+  <ul>
+    - Completed AI Application Workshops (68 hours) and American Cultural Program (81 hours).
+  </ul>
+
+  <br>
+
+  <div class="resume-item">
     <div class="resume-item-left"><strong>Research Intern</strong></div>
     <div class="resume-item-center">CNU WellcomLab</div>
     <div class="resume-item-right">01/2024 - Present</div>
@@ -52,6 +63,8 @@ header:
     <br>
     - Performing user testing, interviews, and analyzing experimental data to improve user experience and validate research hypotheses.
   </ul>
+
+  <br>
 
   <div class="resume-item">
     <div class="resume-item-left"><strong>Treasurer</strong></div>
@@ -71,12 +84,34 @@ header:
   <div class="cert-block">
     <div class="resume-item">
       <div class="resume-item-left">
+        <strong> Advanced Learning Algorithms</strong>
+      </div>
+      <div class="resume-item-right">DeepLearning.AI</div>
+    </div>
+    <div class="resume-item">
+      <div class="resume-item-left">Credential ID <a href="https://www.coursera.org/account/accomplishments/verify/M8QLFHO0MBX9" target="_blank">M8QLFHO0MBX9</a></div>
+      <div class="resume-item-right">Nov. 2025</div>
+    </div>
+    <br>
+    <div class="resume-item">
+      <div class="resume-item-left">
+        <strong> Supervised Machine Learning: Regression and Classification</strong>
+      </div>
+      <div class="resume-item-right">DeepLearning.AI</div>
+    </div>
+    <div class="resume-item">
+      <div class="resume-item-left">Credential ID <a href="https://www.coursera.org/account/accomplishments/verify/U9DVCRO75HPQ" target="_blank">U9DVCRO75HPQ</a></div>
+      <div class="resume-item-right">Oct. 2025</div>
+    </div>
+    <br>
+    <div class="resume-item">
+      <div class="resume-item-left">
         <strong> SQLD (SQL Developer)</strong>
       </div>
       <div class="resume-item-right">Korea Data Agency (K-DATA)</div>
     </div>
     <div class="resume-item">
-      <div class="resume-item-left">Verified proficiency in SQL, relational schema design, and query optimization.</div>
+      <div class="resume-item-left">Verified proficiency in SQL, relational schema design, and query optimization.<br>Credential ID SQLD-057015676</div>
       <div class="resume-item-right">May. 2024</div>
     </div>
   </div>
