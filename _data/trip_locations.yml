@@ -37,3 +37,8 @@ US-AZ:
   name: "Arizona"
   lat: 33.4484
   lng: -112.0740
+
+US-NY:
+  name: "New York"
+  lat: 40.7128
+  lng: -74.0060
