@@ -1,0 +1,5 @@
+// 헤더 로고 전용 스타일 파일
+.site-logo img {
+  transform: scale(1.4) rotate(-8deg);
+  filter: hue-rotate(240deg) saturate(0.5);
+}

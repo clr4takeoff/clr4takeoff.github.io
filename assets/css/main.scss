@@ -6,7 +6,7 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-
+@import "custom_logo"; // custom header logo styles
 
 // Custom styles
 .sidebar.sticky {
@@ -160,7 +160,6 @@ search: false
 
   // 호버 시: 블라인드가 닫힘 (가려지게 끝까지 내려옴)
   &:hover::after {
-    // 덮친 후에도 손잡이가 보일락 말락하도록 -5%
     transform: translateY(-8%);
   }
 }
