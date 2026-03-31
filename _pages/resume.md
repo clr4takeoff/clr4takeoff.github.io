@@ -6,8 +6,8 @@ layout: resume
 sidebar_main: true
 header:
   - text: '<span class="iconify" data-icon="tabler:phone"></span> (+82) 000-000-0000<br>'
-  - text: '<span class="iconify" data-icon="tabler:mail"></span> jetblue2332@gmail.com'
-    link: mailto:jetblue2332@gmail.com
+  - text: '<span class="iconify" data-icon="tabler:mail"></span> soyn.choi@gmail.com'
+    link: mailto:soyn.choi@gmail.com
   - text: '<span class="iconify" data-icon="tabler:brand-github"></span> clr4takeoff'
     link: https://github.com/clr4takeoff
   - text: '<span class="iconify" data-icon="charm:person"></span> clr4takeoff.github.io'
