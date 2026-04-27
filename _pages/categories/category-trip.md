@@ -20,7 +20,7 @@ sidebar_main: true
       {
         title: {{ p.title | jsonify }},
         url: {{ p.url | relative_url | jsonify }},
-        date: {{ p.date | date: "%Y-%m-%d" | jsonify }},
+        date: {{ p.date | date: "%Y-%m-%dT%H:%M" | jsonify }},
         loc: {{ p.trip_location | upcase | jsonify }},
         categories: {{ p.categories | jsonify }}
       }{% unless forloop.last %},{% endunless %}

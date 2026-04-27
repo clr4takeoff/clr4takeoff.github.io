@@ -54,7 +54,7 @@
           ${pagePosts.map((p) => `
             <div class="trip-popup__item">
               <a class="trip-popup__link" href="${p.url}">${escapeHtml(p.title)}</a>
-              <span class="trip-popup__date">${p.date}</span>
+              <span class="trip-popup__date">${p.date.slice(0, 10)}</span>
             </div>
           `).join("")}
         </div>
