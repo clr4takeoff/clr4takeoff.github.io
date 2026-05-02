@@ -24,6 +24,10 @@
 <!-- Airplane cursor: contrail + rotation effect -->
 <script src="{{ '/assets/js/airplane-cursor.js' | relative_url }}"></script>
 
+{% if page.permalink == "/about/" %}
+  <script src="{{ '/assets/js/about-radar.js' | relative_url }}"></script>
+{% endif %}
+
 {% if site.after_footer_scripts %}
   {% for script in site.after_footer_scripts %}
     <script src="{{ script | relative_url }}"></script>

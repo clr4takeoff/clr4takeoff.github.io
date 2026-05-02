@@ -1,0 +1,144 @@
+/* ── 외부 패널 ── */
+#radar-panel {
+  position: relative;
+  width: min(660px, 100%);
+  margin: 2.5rem auto 1rem;
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 212, 240, 0.5);
+  border-radius: 14px;
+  box-shadow:
+    0 4px 20px rgba(100, 160, 220, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* ── 헤더 바 ── */
+.radar-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 9px;
+  border-bottom: 1px solid rgba(168, 212, 240, 0.35);
+}
+
+.radar-panel__title {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #2e6fa3;
+}
+
+.radar-panel__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #3a9e6e;
+}
+
+.radar-panel__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 5px rgba(74, 222, 128, 0.6);
+  animation: status-blink 2.4s ease-in-out infinite;
+}
+
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+/* ── 레이더 영역 ── */
+#radar-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 18px 20px 14px;
+}
+
+#radar-container {
+  position: relative;
+  width: min(520px, 100%);
+  aspect-ratio: 1;
+}
+
+/* 코너 브래킷 */
+#radar-container::before,
+#radar-container::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(80, 140, 200, 0.35);
+  border-style: solid;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#radar-container::before {
+  top: 4px;
+  left: 4px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+#radar-container::after {
+  bottom: 4px;
+  right: 4px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+#radar-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(220, 238, 252, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(168, 212, 240, 0.5);
+  box-shadow:
+    0 4px 20px rgba(100, 160, 220, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  cursor: crosshair;
+}
+
+/* ── 푸터 바 ── */
+.radar-panel__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 10px;
+  border-top: 1px solid rgba(168, 212, 240, 0.35);
+}
+
+.radar-panel__footer span {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: #5a8fb0;
+}
+
+/* ── 툴팁 ── */
+#radar-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 212, 240, 0.6);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: #1a3a5c;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(100, 160, 220, 0.12);
+  display: none;
+  z-index: 10;
+  transform: translateY(-50%);
+}
