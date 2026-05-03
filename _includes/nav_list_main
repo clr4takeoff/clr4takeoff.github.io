@@ -83,6 +83,9 @@
             </ul>
 
         <span class="nav__sub-title">Activities</span>
+            <ul>
+                <li><a href="/portfolio/">Portfolio</a></li>
+            </ul>
                 <ul>
                     {% for category in site.categories %}
                         {% if category[0] == "trip" %}
