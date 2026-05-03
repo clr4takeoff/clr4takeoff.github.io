@@ -1,0 +1,232 @@
+.boarding-pass-wrapper {
+  margin: 2rem 0;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.boarding-pass {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  height: 210px;
+  background: transparent;
+  overflow: visible;
+  position: relative;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+
+  @media (max-width: 600px) {
+    height: 150px;
+  }
+}
+
+.boarding-pass__main {
+  flex: 3;
+  padding: 1.5rem;
+  background: #fff;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-right: 2px dashed #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.05);
+
+  // 본체 오른쪽 끝에 반원 홈 뚫기
+  -webkit-mask-image: 
+    radial-gradient(circle at 100% 0, transparent 12px, black 13px),
+    radial-gradient(circle at 100% 100%, transparent 12px, black 13px);
+  mask-image: 
+    radial-gradient(circle at 100% 0, transparent 12px, black 13px),
+    radial-gradient(circle at 100% 100%, transparent 12px, black 13px);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+
+  @media (max-width: 600px) {
+    flex: 2.3;
+    padding: 1rem;
+  }
+}
+
+.boarding-pass__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+
+  .boarding-pass__airline {
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: #3b71b0;
+    letter-spacing: 1px;
+  }
+
+  .boarding-pass__type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #999;
+  }
+}
+
+.boarding-pass__route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+
+  .boarding-pass__city {
+    display: flex;
+    flex-direction: column;
+
+    .code {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #333;
+      line-height: 1;
+    }
+
+    .name {
+      font-size: 0.7rem;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+  }
+
+  .boarding-pass__icon {
+    font-size: 1.5rem;
+    color: #3b71b0;
+    animation: fly-subtle 3s ease-in-out infinite;
+  }
+}
+
+.boarding-pass__details {
+  display: flex;
+  gap: 2rem;
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      font-size: 0.6rem;
+      color: #aaa;
+      font-weight: 600;
+    }
+
+    .value {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #444;
+    }
+  }
+}
+
+.boarding-pass__stub {
+  flex: 1;
+  padding: 1.5rem;
+  background: #fdfdfd;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transform-origin: left center;
+  z-index: 2;
+  box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.05);
+
+  // 스텁 왼쪽 끝에 반원 홈 뚫기
+  -webkit-mask-image: 
+    radial-gradient(circle at 0 0, transparent 12px, black 13px),
+    radial-gradient(circle at 0 100%, transparent 12px, black 13px);
+  mask-image: 
+    radial-gradient(circle at 0 0, transparent 12px, black 13px),
+    radial-gradient(circle at 0 100%, transparent 12px, black 13px);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+
+  cursor: grab !important; 
+
+  &:active {
+    cursor: grabbing !important;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+
+  &.is-tearing {
+    box-shadow: -15px 15px 40px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+  }
+}
+
+.boarding-pass__stub-header {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #bbb;
+  text-align: center;
+}
+
+.boarding-pass__stub-route {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #555;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.boarding-pass__tear-hint {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #3b71b0;
+  text-align: center;
+  padding: 0.4rem;
+  border: 1px dashed #3b71b0;
+  border-radius: 4px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes fly-subtle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+
+// Dark mode adjustments
+[data-theme="dark"] .boarding-pass {
+  .boarding-pass__main {
+    background: #1e1e1e;
+    border-right-color: #333;
+  }
+  
+  .boarding-pass__header {
+    border-bottom-color: #333;
+  }
+
+  .boarding-pass__city .code {
+    color: #eee;
+  }
+
+  .boarding-pass__details .value {
+    color: #ccc;
+  }
+
+  .boarding-pass__stub {
+    background: #252525;
+  }
+}
