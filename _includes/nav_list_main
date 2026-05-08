@@ -46,6 +46,13 @@
         </ul>
         <ul>
             {% for category in site.categories %}
+                {% if category[0] == "data-communication" %}
+                    <li><a href="/categories/data-communication" class="">Data Communication ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for category in site.categories %}
                 {% if category[0] == "Algorithm" %}
                     <li><a href="/categories/boj" class="">Baekjoon ({{category[1].size}})</a></li>
                 {% endif %}
