@@ -53,6 +53,13 @@
         </ul>
         <ul>
             {% for category in site.categories %}
+                {% if category[0] == "network" %}
+                    <li><a href="/categories/network" class="">Network ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for category in site.categories %}
                 {% if category[0] == "Algorithm" %}
                     <li><a href="/categories/boj" class="">Baekjoon ({{category[1].size}})</a></li>
                 {% endif %}
