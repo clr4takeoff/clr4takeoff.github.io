@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "Résumé"
-    url: /resume/
+  - title: "Portfolio"
+    url: https://clr4takeoff.github.io/portfolio
   - title: "About"
     url: /about/
   - title: "Category"
