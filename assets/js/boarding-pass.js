@@ -80,14 +80,9 @@ class BoardingPass {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // If we are on the portfolio page, maybe the destination should be different?
-  // But per user request, we point to the portfolio site.
-  var dest = 'https://clr4takeoff.github.io/portfolio/';
-  
-  // Optional: check if we are already at the destination
-  if (window.location.href.includes('/portfolio/')) {
-    // If on portfolio already, maybe go to a specific project or home?
-    // The user said "move to portfolio site", so we'll keep it for now.
+  var dest = 'https://clr4takeoff.github.io/airportfolio/';
+
+  if (window.location.href.includes('/airportfolio/')) {
   }
 
   new BoardingPass({
