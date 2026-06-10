@@ -28,11 +28,7 @@
     }
 
     &.sticky {
-      overflow-y: auto;
-      /* calculate height of nav list
-         viewport height - nav height - masthead x-padding
-      */
-      max-height: calc(100vh - #{$nav-height} - 2em);
+      overflow-y: visible;
     }
   }
 
@@ -172,7 +168,7 @@
 }
 .sidebar .author__name {
   font-family: $sans-serif;
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 }
 
 .author__bio {
@@ -312,7 +308,7 @@
     padding-block: 2px;
     padding-inline-end: 5px;
     color: inherit;
-    font-size: $type-size-6;
+    font-size: $type-size-5;
     text-decoration: none;
 
     &:hover {
