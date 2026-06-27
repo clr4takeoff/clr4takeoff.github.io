@@ -13,6 +13,7 @@ sidebar_main: true
   <button class="season-button" onclick="showSeason('winter')">❄️ 2024 동계 모각코</button>
   <button class="season-button" onclick="showSeason('summer')">🌞 2025 하계 모각코</button>
   <button class="season-button" onclick="showSeason('winter2025')">⛄️ 2025 동계 모각코</button>
+  <button class="season-button" onclick="showSeason('summer2026')">🏝️ 2026 하계 모각코</button>
 </div>
 
 <!-- 2024 동계 모각코 영역 -->
@@ -73,6 +74,23 @@ sidebar_main: true
   </div>
 </div>
 
+<!-- 2026 하계 모각코 영역 -->
+<div id="season-summer2026" style="display: none;">
+  <h2 style="font-size: 1.5rem;">2026 하계 모각코 🏝️</h2>
+
+  <h3>My Posts 👤</h3>
+  <div class="entries-individual" style="background-color: #E4F0F8; padding: 15px; border-radius: 8px;">
+    {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'summer-2026'" %}
+    {% for post in posts %}
+      {% if post.type == "individual" %}
+        <div style="margin-bottom: 15px; border-bottom: 1px solid #ddd;">
+          {% include archive-single2.html type=page.entries_layout %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
 <!-- 2025 하계 모각코 영역 -->
 <div id="season-summer" style="display: none;">
   <h2 style="font-size: 1.5rem;">2025 하계 모각코 🌞</h2>
@@ -105,7 +123,7 @@ sidebar_main: true
 <script>
 function showSeason(season) {
   // 모든 시즌 섹션 숨기기
-  const sections = ['season-winter', 'season-winter2025', 'season-summer'];
+  const sections = ['season-winter', 'season-winter2025', 'season-summer', 'season-summer2026'];
   sections.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = 'none';
@@ -114,7 +132,8 @@ function showSeason(season) {
   // 선택된 시즌만 표시
   const targetId = (season === 'winter') ? 'season-winter'
                   : (season === 'winter2025') ? 'season-winter2025'
-                  : 'season-summer';
+                  : (season === 'summer') ? 'season-summer'
+                  : 'season-summer2026';
   document.getElementById(targetId).style.display = 'block';
 
   // 버튼 강조
