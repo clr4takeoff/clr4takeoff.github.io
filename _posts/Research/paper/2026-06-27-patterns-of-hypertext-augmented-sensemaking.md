@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
 
-date: 2026-06-27 22:00
-last_modified_at: 2026-06-27 22:00
+date: 2026-06-27 20:30
+last_modified_at: 2026-06-27 20:30
 comments: true
 ---
 
@@ -42,7 +42,7 @@ comments: true
 
 <br>
 
-## 4. Structure — 생각을 다듬는 과정
+## 4. Structure - 생각을 다듬는 과정
 - **Source Notes** (Evidence file)
 - **Summary Notes** (Schema)
 - **Synthesis Note** (Hypothesis)
