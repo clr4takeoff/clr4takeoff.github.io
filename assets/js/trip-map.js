@@ -29,7 +29,7 @@
     }[m]));
   }
 
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = 5;
 
   function buildPopupContent(locName, sorted, page) {
     const total = sorted.length;
@@ -88,9 +88,11 @@
     let navTimer = null;
 
     const popup = L.popup({
-      maxWidth: 360,
+      minWidth: 300,
+      maxWidth: 420,
       autoPanPadding: [24, 24],
-      closeButton: true
+      closeButton: true,
+      className: "trip-popup-wrapper"
     }).setContent(buildPopupContent(info.name, sorted, currentPage));
 
     marker.bindPopup(popup);

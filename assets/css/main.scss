@@ -19,27 +19,126 @@ search: false
   color: #3b71b0;
 }
 
+// --- Trip map popup (세련된 카드 스타일) ---
+.leaflet-popup.trip-popup-wrapper {
+  .leaflet-popup-content-wrapper {
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow:
+      0 12px 28px rgba(15, 23, 42, 0.16),
+      0 2px 6px rgba(15, 23, 42, 0.08);
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .leaflet-popup-tip {
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.1);
+  }
+
+  .leaflet-popup-close-button {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 20px;
+    color: #94a3b8;
+
+    &:hover {
+      color: #334155;
+      background: transparent;
+    }
+  }
+}
+
+.trip-popup {
+  padding: 16px 18px 14px;
+}
+
+.trip-popup__title {
+  margin-bottom: 10px;
+  padding-right: 18px;
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.trip-popup__count {
+  margin-left: 2px;
+  font-size: 0.82em;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+.trip-popup__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-popup__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #f1f5f9;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.trip-popup__link {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.92em;
+  color: #3b71b0;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.trip-popup__date {
+  flex: 0 0 auto;
+  font-size: 0.76em;
+  color: #b0b8c1;
+}
+
 .trip-popup__pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 8px;
-  padding-top: 6px;
-  border-top: 1px solid #e0e0e0;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
 }
 
 .trip-popup__nav {
-  background: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1;
   cursor: pointer;
-  font-size: 18px;
-  padding: 2px 8px;
-  color: #333;
+  transition: background 0.15s ease, color 0.15s ease;
 
   &:hover:not(:disabled) {
-    background: #f0f0f0;
+    background: #3b71b0;
+    color: #fff;
   }
 
   &:disabled {
@@ -49,8 +148,10 @@ search: false
 }
 
 .trip-popup__page {
-  font-size: 0.8em;
-  color: #666;
+  min-width: 40px;
+  font-size: 0.78em;
+  color: #94a3b8;
+  text-align: center;
 }
 
 // 비행기 커서 전용: 모든 요소 기본 커서 제거
