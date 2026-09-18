@@ -20,7 +20,7 @@ rtl                      : # true, false (default) # turns direction of the page
 title                    : "즐겁다"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "껍질 미리 깐 달걀"
+name                     : "Soyeon Choi"
 description              : "Just heat and serve!."
 url                      : "https://clr4takeoff.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : ""
@@ -113,9 +113,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "껍질 미리 깐 달걀"
+  name             : "Soyeon Choi"
   avatar           : assets/profile/profile.JPG
-  bio              : "Just heat and serve!"
+  bio              : "언제 어떤 글이 올라올지 모르는 블로그"
   location         : "Daejeon, South Korea"
   email            : "soyn.choi@gmail.com"
   links:
