@@ -28,6 +28,22 @@
   <link rel="stylesheet" href="{{ '/assets/css/about-radar.css' | relative_url }}">
 {% endif %}
 
+<!-- 방문자 현지 시각에 따라 하늘 테마 결정 (day / sunset / night). ?sky=night 로 강제 가능 -->
+<script>
+  (function () {
+    var q = /[?&]sky=(day|sunset|night)/.exec(location.search);
+    var saved = null;
+    try { saved = localStorage.getItem('sky-mode'); } catch (e) {}
+    if (saved !== 'day' && saved !== 'sunset' && saved !== 'night') saved = null;
+    var mode = q ? q[1] : saved;
+    var h = new Date().getHours();
+    var auto = (h >= 7 && h < 17) ? 'day' : (h >= 17 && h < 20) || (h >= 5 && h < 7) ? 'sunset' : 'night';
+    document.documentElement.setAttribute('data-sky', mode || auto);
+    document.documentElement.setAttribute('data-sky-mode', mode ? 'manual' : 'auto');
+    window.__skyAuto = auto;
+  })();
+</script>
+
 <!-- Sky & Cloud Theme -->
 <link rel="stylesheet" href="{{ '/assets/css/sky-theme.css' | relative_url }}">
 

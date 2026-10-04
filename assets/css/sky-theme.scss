@@ -7,15 +7,78 @@ search: false
    Sky & Cloud Theme — 전체 페이지 배경 + 구름 애니메이션
    ========================================================================== */
 
+
+// ── 시간대별 팔레트: head의 스크립트가 <html data-sky="day|sunset|night"> 지정 ──
+:root {
+  --sky-1: #a8d4f0; --sky-2: #c6e6f8; --sky-3: #ddf0fb; --sky-4: #eef8fd; --sky-5: #f4fafe;
+  --mast-1: rgba(168, 212, 240, 0.95); --mast-2: rgba(198, 230, 248, 0.90);
+  --mast-border: rgba(140, 190, 230, 0.4);
+  --nav-text: #1a3a5c; --nav-hover: #0d2540;
+  --glass: rgba(255, 255, 255, 0.72); --glass-box: rgba(255, 255, 255, 0.70);
+  --glass-border: rgba(180, 215, 240, 0.5);
+  --glass-shadow: rgba(100, 160, 220, 0.1);
+  --menu-bg: rgba(235, 248, 255, 0.92);
+  --text: #333; --text-strong: #222;
+  --subtitle: #2e6fa3; --subtitle-shadow: rgba(200, 230, 255, 0.9);
+  --cloud-color: #ffffff; --cloud-opacity: 1; --cloud-shadow: rgba(140, 190, 230, 0.25);
+}
+
+html[data-sky="sunset"] {
+  --sky-1: #cdbdea; --sky-2: #f4bfcf; --sky-3: #fbd3b8; --sky-4: #fde4cb; --sky-5: #fff1e0;
+  --mast-1: rgba(205, 189, 234, 0.95); --mast-2: rgba(244, 191, 207, 0.90);
+  --mast-border: rgba(230, 160, 170, 0.4);
+  --nav-text: #5a2d46; --nav-hover: #3a1a2e;
+  --glass: rgba(255, 250, 244, 0.78); --glass-box: rgba(255, 250, 244, 0.76);
+  --glass-border: rgba(240, 190, 170, 0.5);
+  --glass-shadow: rgba(220, 130, 110, 0.12);
+  --menu-bg: rgba(255, 244, 234, 0.94);
+  --text: #333; --text-strong: #222;
+  --subtitle: #a14a68; --subtitle-shadow: rgba(255, 235, 220, 0.9);
+  --cloud-color: #fff6ee; --cloud-opacity: 0.9; --cloud-shadow: rgba(230, 140, 120, 0.2);
+}
+
+html[data-sky="night"] {
+  --sky-1: #0b1330; --sky-2: #14224a; --sky-3: #1d3260; --sky-4: #28437a; --sky-5: #34568f;
+  --mast-1: rgba(11, 19, 48, 0.95); --mast-2: rgba(20, 34, 74, 0.90);
+  --mast-border: rgba(120, 150, 220, 0.3);
+  --nav-text: #dbe6ff; --nav-hover: #ffffff;
+  --glass: rgba(20, 32, 66, 0.68); --glass-box: rgba(20, 32, 66, 0.66);
+  --glass-border: rgba(120, 150, 220, 0.3);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --menu-bg: rgba(16, 28, 60, 0.94);
+  --text: #d6e0f5; --text-strong: #f2f6ff;
+  --subtitle: #b9cdf5; --subtitle-shadow: rgba(10, 20, 50, 0.9);
+  --cloud-color: #6a7ba8; --cloud-opacity: 0.35; --cloud-shadow: rgba(0, 0, 10, 0.2);
+}
+
+// 밤: 본문/제목/링크 색을 밝게
+html[data-sky="night"] body,
+html[data-sky="night"] .page__content,
+html[data-sky="night"] .archive__item-excerpt,
+html[data-sky="night"] .page__meta,
+html[data-sky="night"] .page__taxonomy,
+html[data-sky="night"] .page__footer,
+html[data-sky="night"] .page__footer-copyright { color: var(--text); }
+html[data-sky="night"] h1, html[data-sky="night"] h2, html[data-sky="night"] h3,
+html[data-sky="night"] h4, html[data-sky="night"] h5, html[data-sky="night"] h6,
+html[data-sky="night"] .page__title, html[data-sky="night"] .page__title a,
+html[data-sky="night"] .archive__item-title,
+html[data-sky="night"] .archive__item-title a { color: var(--text-strong); }
+html[data-sky="night"] .page__content a { color: #8fb4ff; }
+html[data-sky="night"] .page__content a:hover { color: #c3d6ff; }
+html[data-sky="night"] .page__footer a { color: #b9cdf5; }
+
+html, body { transition: background-color 0.4s ease; }
+
 // 전체 페이지 하늘 배경 (헤더/푸터 포함)
 html, body {
   background: linear-gradient(
     180deg,
-    #a8d4f0 0%,
-    #c6e6f8 18%,
-    #ddf0fb 42%,
-    #eef8fd 68%,
-    #f4fafe 100%
+    var(--sky-1) 0%,
+    var(--sky-2) 18%,
+    var(--sky-3) 42%,
+    var(--sky-4) 68%,
+    var(--sky-5) 100%
   ) fixed;
   min-height: 100%;
 }
@@ -53,13 +116,14 @@ html, body {
   pointer-events: none;
   width: 260px;
   height: 100px;
-  filter: drop-shadow(0 4px 12px rgba(140, 190, 230, 0.25)) opacity(0.9);
+  filter: drop-shadow(0 4px 12px var(--cloud-shadow));
+  opacity: var(--cloud-opacity);
 }
 
 // puff: 겹침 선 없이 하나의 덩어리처럼 보이도록 완전 흰색 사용
 .cloud__puff {
   position: absolute;
-  background: #ffffff;
+  background: var(--cloud-color);
   border-radius: 50%;
 }
 
@@ -69,10 +133,10 @@ html, body {
 
 // ── 구름 개별 위치·속도 ──
 .cloud--1 { top: 7vh;  animation: cloud-1 40s linear -5s  infinite; transform: scale(1.15); }
-.cloud--2 { top: 20vh; animation: cloud-2 58s linear -18s infinite; transform: scale(0.80); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.2)) opacity(0.7); }
-.cloud--3 { top: 45vh; animation: cloud-3 48s linear -30s infinite; transform: scale(1.00); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.2)) opacity(0.8); }
-.cloud--4 { top: 65vh; animation: cloud-4 68s linear -8s  infinite; transform: scale(0.65); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.15)) opacity(0.55); }
-.cloud--5 { top: 82vh; animation: cloud-5 52s linear -22s infinite; transform: scale(0.85); filter: drop-shadow(0 4px 12px rgba(140,190,230,0.18)) opacity(0.65); }
+.cloud--2 { top: 20vh; animation: cloud-2 58s linear -18s infinite; transform: scale(0.80); opacity: calc(var(--cloud-opacity) * 0.7); }
+.cloud--3 { top: 45vh; animation: cloud-3 48s linear -30s infinite; transform: scale(1.00); opacity: calc(var(--cloud-opacity) * 0.8); }
+.cloud--4 { top: 65vh; animation: cloud-4 68s linear -8s  infinite; transform: scale(0.65); opacity: calc(var(--cloud-opacity) * 0.55); }
+.cloud--5 { top: 82vh; animation: cloud-5 52s linear -22s infinite; transform: scale(0.85); opacity: calc(var(--cloud-opacity) * 0.65); }
 
 @keyframes cloud-1 { from { transform: translateX(-300px) scale(1.15); } to { transform: translateX(calc(100vw + 300px)) scale(1.15); } }
 @keyframes cloud-2 { from { transform: translateX(-280px) scale(0.80); } to { transform: translateX(calc(100vw + 280px)) scale(0.80); } }
@@ -102,12 +166,12 @@ html, body {
 // ── 포스트 카드: 반투명 유리창 ──
 article.archive__item,
 article.archive-item {
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--glass);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 12px;
-  border: 1px solid rgba(180, 215, 240, 0.45);
-  box-shadow: 0 2px 10px rgba(100, 160, 220, 0.1);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 10px var(--glass-shadow);
   padding: 1.2em 1.4em;
   margin-bottom: 1.2em;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -164,12 +228,12 @@ article.archive-item {
 .masthead {
   background: linear-gradient(
     to bottom,
-    rgba(168, 212, 240, 0.95),
-    rgba(198, 230, 248, 0.90)
+    var(--mast-1),
+    var(--mast-2)
   ) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(140, 190, 230, 0.4);
+  border-bottom: 1px solid var(--mast-border);
 }
 
 // greedy-nav 자체는 투명 — masthead 그라디언트가 보이도록
@@ -178,10 +242,10 @@ article.archive-item {
 
   // 링크: 하늘 배경에서 잘 보이는 네이비
   a {
-    color: #1a3a5c !important;
+    color: var(--nav-text) !important;
 
     &:hover {
-      color: #0d2540 !important;
+      color: var(--nav-hover) !important;
     }
   }
 }
@@ -189,22 +253,22 @@ article.archive-item {
 // 호버 언더라인: 네이비
 .greedy-nav .visible-links a::before {
   height: 2px !important;
-  background: #1a3a5c !important;
+  background: var(--nav-text) !important;
 }
 
 // 드롭다운 메뉴: 글래스 처리
 .greedy-nav .hidden-links {
-  background: rgba(235, 248, 255, 0.92) !important;
+  background: var(--menu-bg) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(140, 190, 230, 0.5) !important;
+  border: 1px solid var(--glass-border) !important;
   box-shadow: 0 4px 16px rgba(80, 140, 210, 0.15) !important;
 }
 
 // 토글 버튼(햄버거): 투명 배경
 .greedy-nav button {
   background: transparent !important;
-  color: #1a3a5c;
+  color: var(--nav-text);
 }
 
 // ── 사이드바: 투명 배경 + 자식 요소별 분리 박스 ──
@@ -215,16 +279,16 @@ article.archive-item {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   padding: 0;
-  color: #333;
+  color: var(--text);
 }
 
 %glass-box {
-  background: rgba(255, 255, 255, 0.70);
+  background: var(--glass-box);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 14px;
-  border: 1px solid rgba(180, 215, 240, 0.5);
-  box-shadow: 0 4px 16px rgba(100, 160, 220, 0.1);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--glass-shadow);
   padding: 1em 1.2em;
 }
 
@@ -232,16 +296,16 @@ article.archive-item {
 .sidebar .h-card {
   @extend %glass-box;
   margin-bottom: 1em;
-  color: #333;
+  color: var(--text);
 
-  .author__name { color: #222; }
+  .author__name { color: var(--text-strong); }
 }
 
 // ② 카테고리 박스: 항목이 채워진 경우에만 표시
 //    :has(li) — JS로 항목이 추가된 후에만 glass-box 배경이 보임
 .sidebar .nav__list:has(li) {
   @extend %glass-box;
-  color: #333;
+  color: var(--text);
 }
 
 // ── "Recent Posts" 제목 하늘색 강조 ──
@@ -249,7 +313,63 @@ article.archive-item {
   position: relative;
   z-index: 1;
   margin-top: 0;
-  color: #2e6fa3;
-  text-shadow: 0 1px 6px rgba(200, 230, 255, 0.9);
+  color: var(--subtitle);
+  text-shadow: 0 1px 6px var(--subtitle-shadow);
   letter-spacing: 0.02em;
+}
+
+
+// ── 테마 전환 버튼 (우하단 고정) ──
+.sky-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--text-strong);
+  background: var(--glass-box);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px var(--glass-shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover { transform: translateY(-2px); }
+
+  // 커스텀 툴팁: data-tip 내용을 호버/포커스 시 버튼 위에 표시
+  &::after {
+    content: attr(data-tip);
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 10px);
+    padding: 0.5em 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    width: max-content;
+    max-width: 240px;
+    text-align: left;
+    white-space: normal;
+    word-break: keep-all;
+    color: var(--text-strong);
+    background: var(--menu-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px var(--glass-shadow);
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
