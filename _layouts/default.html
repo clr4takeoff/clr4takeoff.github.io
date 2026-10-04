@@ -58,6 +58,35 @@
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
     {% include_cached skip-links.html %}
 
+    <!-- 하늘 테마 전환 버튼: 자동 → 낮 → 노을 → 밤 순환 -->
+    <button type="button" class="sky-toggle" id="sky-toggle" aria-label="배경 테마 바꾸기"></button>
+    <script>
+      (function () {
+        var btn = document.getElementById('sky-toggle');
+        var root = document.documentElement;
+        var order = ['auto', 'day', 'sunset', 'night'];
+        var icons = { day: '☀️', sunset: '🌇', night: '🌙' };
+        var names = { auto: '자동', day: '낮', sunset: '노을', night: '밤' };
+        function current() { return root.getAttribute('data-sky-mode') === 'auto' ? 'auto' : root.getAttribute('data-sky'); }
+        function render() {
+          var m = current();
+          btn.textContent = m === 'auto' ? '🕒' : icons[m];
+          var next = order[(order.indexOf(m) + 1) % order.length];
+          var now = m === 'auto' ? '접속 시간에 맞춰 배경이 자동으로 바뀌고 있어요.' : '지금은 ' + names[m] + ' 배경으로 고정되어 있어요.';
+          var then = next === 'auto' ? '누르면 다시 접속 시간에 맞춰 자동으로 바뀌어요.' : '누르면 ' + names[next] + ' 배경으로 바뀌어요.';
+          btn.setAttribute('data-tip', now + ' ' + then);
+        }
+        btn.addEventListener('click', function () {
+          var next = order[(order.indexOf(current()) + 1) % order.length];
+          try { next === 'auto' ? localStorage.removeItem('sky-mode') : localStorage.setItem('sky-mode', next); } catch (e) {}
+          root.setAttribute('data-sky', next === 'auto' ? window.__skyAuto : next);
+          root.setAttribute('data-sky-mode', next === 'auto' ? 'auto' : 'manual');
+          render();
+        });
+        render();
+      })();
+    </script>
+
     <!-- Full-page sky + cloud layer (fixed, behind everything) -->
     <div class="sky-scene" aria-hidden="true">
       <div class="cloud cloud--1">
