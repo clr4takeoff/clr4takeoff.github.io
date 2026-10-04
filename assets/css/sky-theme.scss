@@ -328,7 +328,9 @@ article.archive-item {
   width: 52px;
   height: 52px;
   padding: 0;
-  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
   color: var(--text-strong);
   background: var(--glass-box);

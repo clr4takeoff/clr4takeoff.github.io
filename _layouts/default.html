@@ -65,12 +65,18 @@
         var btn = document.getElementById('sky-toggle');
         var root = document.documentElement;
         var order = ['auto', 'day', 'sunset', 'night'];
-        var icons = { day: '☀️', sunset: '🌇', night: '🌙' };
+        function svg(body) { return '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + body + '</svg>'; }
+        var icons = {
+          auto: svg('<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'),
+          day: svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>'),
+          sunset: svg('<path d="M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0"/>'),
+          night: svg('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>')
+        };
         var names = { auto: '자동', day: '낮', sunset: '노을', night: '밤' };
         function current() { return root.getAttribute('data-sky-mode') === 'auto' ? 'auto' : root.getAttribute('data-sky'); }
         function render() {
           var m = current();
-          btn.textContent = m === 'auto' ? '🕒' : icons[m];
+          btn.innerHTML = icons[m];
           var next = order[(order.indexOf(m) + 1) % order.length];
           var now = m === 'auto' ? '접속 시간에 맞춰 배경이 자동으로 바뀌고 있어요.' : '지금은 ' + names[m] + ' 배경으로 고정되어 있어요.';
           var then = next === 'auto' ? '누르면 다시 접속 시간에 맞춰 자동으로 바뀌어요.' : '누르면 ' + names[next] + ' 배경으로 바뀌어요.';
