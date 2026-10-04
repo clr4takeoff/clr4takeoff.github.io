@@ -9,7 +9,7 @@ sidebar_main: true
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<div id="trip-map" style="height: 700px; width: 1000px;"></div>
+<div id="trip-map" style="width: 100%; height: clamp(360px, 70vh, 700px);"></div>
 
 <script>
   // 전체 글 중 trip_location 있는 글만 뽑기 (카테고리 무관)
