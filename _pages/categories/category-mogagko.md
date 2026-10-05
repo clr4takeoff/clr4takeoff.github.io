@@ -10,17 +10,17 @@ sidebar_main: true
 <h2 style="font-size: 1.5rem; margin-bottom: 15px;">모각코 시즌 선택</h2>
 
 <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-  <button class="season-button" onclick="showSeason('winter')">❄️ 2024 동계 모각코</button>
-  <button class="season-button" onclick="showSeason('summer')">🌞 2025 하계 모각코</button>
-  <button class="season-button" onclick="showSeason('winter2025')">⛄️ 2025 동계 모각코</button>
-  <button class="season-button" onclick="showSeason('summer2026')">🏝️ 2026 하계 모각코</button>
+  <button class="season-button" onclick="showSeason('winter')"><span class="iconify" data-icon="lucide:snowflake" style="vertical-align: -0.12em;"></span> 2024 동계 모각코</button>
+  <button class="season-button" onclick="showSeason('summer')"><span class="iconify" data-icon="lucide:sun" style="vertical-align: -0.12em;"></span> 2025 하계 모각코</button>
+  <button class="season-button" onclick="showSeason('winter2025')"><span class="iconify" data-icon="tabler:snowman" style="vertical-align: -0.12em;"></span> 2025 동계 모각코</button>
+  <button class="season-button" onclick="showSeason('summer2026')"><span class="iconify" data-icon="lucide:tree-palm" style="vertical-align: -0.12em;"></span> 2026 하계 모각코</button>
 </div>
 
 <!-- 2024 동계 모각코 영역 -->
 <div id="season-winter" style="display: none;">
-  <h2 style="font-size: 1.5rem;">2024 동계 모각코 ❄️</h2>
+  <h2 style="font-size: 1.5rem;">2024 동계 모각코 <span class="iconify" data-icon="lucide:snowflake" style="vertical-align: -0.12em;"></span></h2>
 
-  <h3>Group Posts 👥</h3>
+  <h3>Group Posts <span class="iconify" data-icon="lucide:users" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-group" style="background-color: #F3F3F3; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'winter-2024'" %}
     {% for post in posts %}
@@ -32,7 +32,7 @@ sidebar_main: true
     {% endfor %}
   </div>
 
-  <h3>My Posts 👤</h3>
+  <h3>My Posts <span class="iconify" data-icon="lucide:user" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-individual" style="background-color: #E4F0F8; padding: 15px; border-radius: 8px; margin-bottom: 50px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'winter-2024'" %}
     {% for post in posts %}
@@ -47,9 +47,9 @@ sidebar_main: true
 
 <!-- 2025 동계 모각코 영역 -->
 <div id="season-winter2025" style="display: none;">
-  <h2 style="font-size: 1.5rem;">2025 동계 모각코 ⛄️</h2>
+  <h2 style="font-size: 1.5rem;">2025 동계 모각코 <span class="iconify" data-icon="tabler:snowman" style="vertical-align: -0.12em;"></span></h2>
 
-  <!-- <h3>Group Posts 👥</h3>
+  <!-- <h3>Group Posts <span class="iconify" data-icon="lucide:users" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-group" style="background-color: #F3F3F3; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'winter-2025'" %}
     {% for post in posts %}
@@ -61,7 +61,7 @@ sidebar_main: true
     {% endfor %}
   </div> -->
 
-  <h3>My Posts 👤</h3>
+  <h3>My Posts <span class="iconify" data-icon="lucide:user" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-individual" style="background-color: #E4F0F8; padding: 15px; border-radius: 8px; margin-bottom: 50px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'winter-2025'" %}
     {% for post in posts %}
@@ -76,9 +76,9 @@ sidebar_main: true
 
 <!-- 2026 하계 모각코 영역 -->
 <div id="season-summer2026" style="display: none;">
-  <h2 style="font-size: 1.5rem;">2026 하계 모각코 🏝️</h2>
+  <h2 style="font-size: 1.5rem;">2026 하계 모각코 <span class="iconify" data-icon="lucide:tree-palm" style="vertical-align: -0.12em;"></span></h2>
 
-  <h3>My Posts 👤</h3>
+  <h3>My Posts <span class="iconify" data-icon="lucide:user" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-individual" style="background-color: #E4F0F8; padding: 15px; border-radius: 8px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'summer-2026'" %}
     {% for post in posts %}
@@ -93,9 +93,9 @@ sidebar_main: true
 
 <!-- 2025 하계 모각코 영역 -->
 <div id="season-summer" style="display: none;">
-  <h2 style="font-size: 1.5rem;">2025 하계 모각코 🌞</h2>
+  <h2 style="font-size: 1.5rem;">2025 하계 모각코 <span class="iconify" data-icon="lucide:sun" style="vertical-align: -0.12em;"></span></h2>
 
-  <h3>Group Posts 👥</h3>
+  <h3>Group Posts <span class="iconify" data-icon="lucide:users" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-group" style="background-color: #F3F3F3; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'summer-2025'" %}
     {% for post in posts %}
@@ -107,7 +107,7 @@ sidebar_main: true
     {% endfor %}
   </div>
 
-  <h3>My Posts 👤</h3>
+  <h3>My Posts <span class="iconify" data-icon="lucide:user" style="vertical-align: -0.12em;"></span></h3>
   <div class="entries-individual" style="background-color: #E4F0F8; padding: 15px; border-radius: 8px;">
     {% assign posts = site.categories.mogagko | where_exp:"item", "item.season == 'summer-2025'" %}
     {% for post in posts %}

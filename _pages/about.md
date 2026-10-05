@@ -6,7 +6,7 @@ layout: archive
 sidebar_main: true
 ---
 
-이것저것 기록하려고 만든 블로그 ✈️
+이것저것 기록하려고 만든 블로그 <span class="iconify" data-icon="lucide:plane" style="vertical-align: -0.12em;"></span>
 
 오른쪽 아래 버튼으로 배경 테마 변경 가능. 기본은 접속 시간에 맞춰 낮(07–17시), 노을(17–20시, 05–07시), 밤(20–05시)으로 자동 변경됨.
 

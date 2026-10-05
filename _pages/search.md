@@ -6,7 +6,7 @@ permalink: /search/
 sidebar_main: true
 ---
 
-## Search 🔎
+## Search <span class="iconify" data-icon="lucide:search" style="vertical-align: -0.12em;"></span>
 
 <!-- Script pointing to jekyll-search.js -->
 <script src="/assets/js/simple-jekyll-search.js" type="text/javascript"></script>

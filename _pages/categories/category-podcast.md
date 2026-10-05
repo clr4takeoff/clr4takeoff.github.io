@@ -1,5 +1,6 @@
 ---
-title: "Podcasts 🎧"
+title: "Podcasts"
+title_icon: "lucide:headphones"
 layout: podcast
 permalink: categories/podcasts
 podcast_grid: true
