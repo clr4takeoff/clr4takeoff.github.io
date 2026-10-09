@@ -1,0 +1,33 @@
+{% assign path_parts = page.path | split: '/' %}
+{% if path_parts[0] == '_posts' and path_parts.size > 2 %}
+  {% assign file_name = path_parts | last %}
+  {% assign folder_dir = page.path | remove: file_name %}
+  {% assign folder_posts = site.posts | where_exp: "p", "p.path contains folder_dir" | sort: "path" %}
+  {% if folder_posts.size > 1 %}
+    {% assign folder_prev = nil %}
+    {% assign folder_next = nil %}
+    {% assign folder_pos = 0 %}
+    {% for p in folder_posts %}
+      {% if p.url == page.url %}
+        {% assign folder_pos = forloop.index %}
+        {% assign i_prev = forloop.index0 | minus: 1 %}
+        {% unless forloop.first %}{% assign folder_prev = folder_posts[i_prev] %}{% endunless %}
+        {% assign i_next = forloop.index0 | plus: 1 %}
+        {% unless forloop.last %}{% assign folder_next = folder_posts[i_next] %}{% endunless %}
+      {% endif %}
+    {% endfor %}
+    <nav class="folder-nav folder-nav--{{ include.position }}" aria-label="Posts in this folder">
+      {% if folder_prev %}
+        <a class="folder-nav__link folder-nav__link--prev" href="{{ folder_prev.url | relative_url }}" rel="prev">
+          <span class="iconify" data-icon="lucide:chevron-left"></span><span class="folder-nav__title">{{ folder_prev.title | markdownify | strip_html | strip }}</span>
+        </a>
+      {% else %}<span class="folder-nav__link folder-nav__link--prev folder-nav__link--empty"></span>{% endif %}
+      <span class="folder-nav__count">{{ folder_pos }} / {{ folder_posts.size }}</span>
+      {% if folder_next %}
+        <a class="folder-nav__link folder-nav__link--next" href="{{ folder_next.url | relative_url }}" rel="next">
+          <span class="folder-nav__title">{{ folder_next.title | markdownify | strip_html | strip }}</span><span class="iconify" data-icon="lucide:chevron-right"></span>
+        </a>
+      {% else %}<span class="folder-nav__link folder-nav__link--next folder-nav__link--empty"></span>{% endif %}
+    </nav>
+  {% endif %}
+{% endif %}
