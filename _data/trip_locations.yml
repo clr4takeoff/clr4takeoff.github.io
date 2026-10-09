@@ -42,3 +42,8 @@ US-NY:
   name: "New York"
   lat: 40.7128
   lng: -74.0060
+
+CN-SH:
+  name: "Shanghai"
+  lat: 31.2304
+  lng: 121.4737
