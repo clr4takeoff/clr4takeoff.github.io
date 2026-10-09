@@ -27,6 +27,13 @@ search: false
     &::-webkit-scrollbar {
       display: none;
     }
+
+    // 본문이 짧을 땐 고정/내부 스크롤 없이 그대로 표시 (sidebar-sticky.js)
+    &.sidebar--static {
+      position: static;
+      max-height: none;
+      overflow-y: visible;
+    }
   }
 }
 
