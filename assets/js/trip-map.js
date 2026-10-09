@@ -34,7 +34,7 @@
 
   const PAGE_SIZE = 5;
 
-  function buildPopupContent(locName, sorted, page) {
+  function buildPopupContent(locName, sorted, page, cc) {
     const total = sorted.length;
     const totalPages = Math.ceil(total / PAGE_SIZE);
     const pagePosts = sorted.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
@@ -50,7 +50,7 @@
     return `
       <div class="trip-popup">
         <div class="trip-popup__title">
-          ${escapeHtml(locName)}
+          <span class="iconify trip-popup__flag" data-icon="circle-flags:${cc}"></span>${escapeHtml(locName)}
           <span class="trip-popup__count">(${total})</span>
         </div>
         <div class="trip-popup__list">
@@ -81,6 +81,7 @@
   // 마커 생성
   for (const [loc, posts] of byLoc.entries()) {
     const info = window.LOCATIONS[loc];
+    const cc = loc.split("-")[0].toLowerCase();
     const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
 
     const marker = L.marker([info.lat, info.lng]).addTo(map);
@@ -97,7 +98,7 @@
       autoPanPadding: [24, 24],
       closeButton: true,
       className: "trip-popup-wrapper"
-    }).setContent(buildPopupContent(info.name, sorted, currentPage));
+    }).setContent(buildPopupContent(info.name, sorted, currentPage, cc));
 
     marker.bindPopup(popup);
 
@@ -130,7 +131,7 @@
         const dir = parseInt(btn.dataset.dir, 10);
         const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
         currentPage = Math.max(0, Math.min(totalPages - 1, currentPage + dir));
-        popup.setContent(buildPopupContent(info.name, sorted, currentPage));
+        popup.setContent(buildPopupContent(info.name, sorted, currentPage, cc));
 
         // 팝업 크기 재계산 후 마우스가 실제로 나갔는지 확인
         navTimer = setTimeout(() => {
@@ -150,7 +151,7 @@
 
     marker.on("mouseover", () => {
       currentPage = 0;
-      popup.setContent(buildPopupContent(info.name, sorted, currentPage));
+      popup.setContent(buildPopupContent(info.name, sorted, currentPage, cc));
       marker.openPopup();
     });
 
@@ -163,7 +164,6 @@
     marker.on("click", () => marker.openPopup());
 
     if (pinsEl) {
-      const cc = loc.split("-")[0].toLowerCase();
       let group = pinsEl.querySelector(`[data-cc="${cc}"]`);
       if (!group) {
         group = document.createElement("div");
