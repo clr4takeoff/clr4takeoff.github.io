@@ -346,3 +346,60 @@ search: false
 html[data-sky="night"] .trip-pins__item {
   color: #a9c4f5;
 }
+
+// --- Trip posts: 이전/다음 여행기 이동 ---
+.trip-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85em;
+  clear: both;
+
+  &--top {
+    margin: 0 0 1.5em;
+    padding-bottom: 0.8em;
+    border-bottom: 1px solid var(--glass-border, #e5e7eb);
+  }
+
+  &--bottom {
+    margin: 2em 0 1em;
+    padding-top: 1em;
+    border-top: 1px solid var(--glass-border, #e5e7eb);
+    font-size: 0.95em;
+  }
+}
+
+.trip-nav__link {
+  flex: 1 1 0;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #3b71b0;
+  text-decoration: none;
+
+  &--next {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  &:hover:not(.trip-nav__link--empty) {
+    text-decoration: underline;
+  }
+}
+
+.trip-nav__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip-nav__count {
+  flex: none;
+  color: #94a3b8;
+}
+
+html[data-sky="night"] .trip-nav__link {
+  color: #a9c4f5;
+}

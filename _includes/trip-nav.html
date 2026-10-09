@@ -1,0 +1,32 @@
+{% assign path_parts = page.path | split: '/' %}
+{% if path_parts[2] == 'Trip' and path_parts.size > 4 %}
+  {% capture trip_dir %}Activities/Trip/{{ path_parts[3] }}/{% endcapture %}
+  {% assign trip_posts = site.posts | where_exp: "p", "p.path contains trip_dir" | sort: "path" %}
+  {% if trip_posts.size > 1 %}
+    {% assign trip_prev = nil %}
+    {% assign trip_next = nil %}
+    {% assign trip_pos = 0 %}
+    {% for p in trip_posts %}
+      {% if p.url == page.url %}
+        {% assign trip_pos = forloop.index %}
+        {% assign i_prev = forloop.index0 | minus: 1 %}
+        {% unless forloop.first %}{% assign trip_prev = trip_posts[i_prev] %}{% endunless %}
+        {% assign i_next = forloop.index0 | plus: 1 %}
+        {% unless forloop.last %}{% assign trip_next = trip_posts[i_next] %}{% endunless %}
+      {% endif %}
+    {% endfor %}
+    <nav class="trip-nav trip-nav--{{ include.position }}" aria-label="Trip posts">
+      {% if trip_prev %}
+        <a class="trip-nav__link trip-nav__link--prev" href="{{ trip_prev.url | relative_url }}" rel="prev">
+          <span class="iconify" data-icon="lucide:chevron-left"></span><span class="trip-nav__title">{{ trip_prev.title | markdownify | strip_html | strip }}</span>
+        </a>
+      {% else %}<span class="trip-nav__link trip-nav__link--prev trip-nav__link--empty"></span>{% endif %}
+      <span class="trip-nav__count">{{ trip_pos }} / {{ trip_posts.size }}</span>
+      {% if trip_next %}
+        <a class="trip-nav__link trip-nav__link--next" href="{{ trip_next.url | relative_url }}" rel="next">
+          <span class="trip-nav__title">{{ trip_next.title | markdownify | strip_html | strip }}</span><span class="iconify" data-icon="lucide:chevron-right"></span>
+        </a>
+      {% else %}<span class="trip-nav__link trip-nav__link--next trip-nav__link--empty"></span>{% endif %}
+    </nav>
+  {% endif %}
+{% endif %}
