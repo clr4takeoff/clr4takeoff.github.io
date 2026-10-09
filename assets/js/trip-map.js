@@ -3,7 +3,8 @@
 
   const map = L.map("trip-map", {
     scrollWheelZoom: false,
-    worldCopyJump: true
+    worldCopyJump: true,
+    minZoom: 2
   }).setView([20, 0], 2);
 
   // 세계 범위로 이동 제한 (가로 무한 반복 방지)
@@ -12,6 +13,8 @@
   const maxBounds = L.latLngBounds(southWest, northEast);
 
   map.setMaxBounds(maxBounds);
+  window.addEventListener("load", () => map.invalidateSize());
+  window.addEventListener("resize", () => map.invalidateSize());
   map.on("drag", () => map.panInsideBounds(maxBounds, { animate: false }));
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -73,6 +76,7 @@
   }
 
   const bounds = [];
+  const pinsEl = document.getElementById("trip-pins");
 
   // 마커 생성
   for (const [loc, posts] of byLoc.entries()) {
@@ -157,6 +161,28 @@
     });
 
     marker.on("click", () => marker.openPopup());
+
+    if (pinsEl) {
+      const cc = loc.split("-")[0].toLowerCase();
+      let group = pinsEl.querySelector(`[data-cc="${cc}"]`);
+      if (!group) {
+        group = document.createElement("div");
+        group.className = "trip-pins__group";
+        group.dataset.cc = cc;
+        group.innerHTML = `<span class="iconify trip-pins__flag" data-icon="circle-flags:${cc}"></span>`;
+        pinsEl.appendChild(group);
+      }
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "trip-pins__item";
+      chip.innerHTML = `${escapeHtml(info.name)} <span class="trip-pins__count">${sorted.length}</span>`;
+      chip.addEventListener("click", () => {
+        document.getElementById("trip-map").scrollIntoView({ behavior: "smooth", block: "center" });
+        map.flyTo([info.lat, info.lng], Math.max(map.getZoom(), 6));
+        map.once("moveend", () => marker.openPopup());
+      });
+      group.appendChild(chip);
+    }
   }
 
   if (bounds.length >= 2) {

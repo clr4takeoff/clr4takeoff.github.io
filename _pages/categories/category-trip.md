@@ -10,7 +10,8 @@ classes: wide
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<div id="trip-map" style="width: 100%; height: clamp(520px, 80vh, 860px);"></div>
+<div id="trip-map" style="width: 100%; aspect-ratio: 2 / 1; min-height: 320px;"></div>
+<div id="trip-pins" class="trip-pins"></div>
 
 <script>
   // 전체 글 중 trip_location 있는 글만 뽑기 (카테고리 무관)
