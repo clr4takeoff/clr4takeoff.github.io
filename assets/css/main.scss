@@ -10,8 +10,24 @@ search: false
 @import "boarding-pass";
 
 // Custom styles
-.sidebar.sticky {
-  height: 100%;
+// 스크롤 시 프로필/사이드바가 화면에 따라 내려오도록 고정
+@include breakpoint($large) {
+  .sidebar.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1em;
+    max-height: calc(100vh - 2em);
+    overflow-y: auto;
+    // 아바타 그림자가 잘리지 않도록 안쪽 여백을 주고 바깥쪽 여백으로 상쇄
+    box-sizing: content-box;
+    padding: 0 1.5em 2.5em;
+    margin-inline: -1.5em;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 // 사이드바 메뉴별 페이지(.archive / .page / .wide) 본문 너비·위치 통일
